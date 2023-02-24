@@ -1,0 +1,32 @@
+Category;Project;Git Repository;Description
+Data storage and management;accumulo;https://github.com/apache/accumulo.git;Data Storage System
+Data storage and management;calcite;https://github.com/apache/calcite.git;Dynamic Data Managment
+Data storage and management;cassandra;https://github.com/apache/cassandra.git;Distributed NoSQL database
+Data storage and management;chukwa;https://github.com/apache/chukwa.git;Data collection
+Data storage and management;jackrabbit;https://github.com/apache/jackrabbit.git;Content Repository
+Data storage and management;jackson;https://github.com/FasterXML/jackson.git;Data biding library
+Web engines and web tools;httpcomp;https://github.com/vy/httpcomp.git;HTTP Toolset
+Web engines and web tools;jspwiki;https://github.com/apache/jspwiki.git;Wiki Engine
+Web engines and web tools;retrofit;https://github.com/square/retrofit.git;Android HTTP client
+Web engines and web tools;spring-boot;https://github.com/spring-projects/spring-boot.git;Spring-based project manager
+Web engines and web tools;struts;https://github.com/apache/struts.git;Web apps
+Search engines;elasticsearch;https://github.com/elastic/elasticsearch.git;Search engine
+Search engines;jena;https://github.com/apache/jena.git;Sematic web
+Search engines;lucene;https://github.com/apache/lucene-solr.git;Search engine
+Search engines;tika;https://github.com/apache/tika.git;Content Analysis Toolkit
+Development tools;ant-ivy;https://github.com/apache/ant-ivy.git;Dependecy Manager
+Development tools;jenkins;https://github.com/jenkinsci/jenkins.git;Automation server
+Development tools;jgit;https://github.com/eclipse/jgit.git;Java implementation of Git
+Development tools;selenium;https://github.com/SeleniumHQ/selenium.git;Automation Web libraries
+Development tools;testng;https://github.com/cbeust/testng.git;Testing framework
+Document manipulation;pdfbox;https://github.com/apache/pdfbox.git;PDF library
+Document manipulation;poi;https://github.com/apache/poi.git;MS Office API
+Document manipulation;xerces2;https://github.com/apache/xerces2-j.git;XML Library
+JDBC drivers;druid;https://github.com/apache/druid.git;Alibaba JDBC Library
+JDBC drivers;pgjdbc;https://github.com/pgjdbc/pgjdbc.git;PostgreSQL JDBC driver
+Networking and messaging;activemq;https://github.com/apache/activemq.git;Message Server
+Networking and messaging;mina;https://github.com/apache/mina.git;Network Framework
+Game engine;libgdx;https://github.com/libgdx/libgdx.git;Game engine
+Data biding;fastjson;https://github.com/alibaba/fastjson.git;Alibaba JSON data mapper
+Data biding;gson;https://github.com/google/gson.git;Google JSON data mapper
+Utility;guava;https://github.com/google/guava.git;Google Core Library
