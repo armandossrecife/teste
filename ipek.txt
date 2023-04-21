@@ -1,0 +1,596 @@
+[Music] this is software engineering radio the podcast for professional developers on the web at se-radio.net
+sc radio is brought to you by the ieee computer society by ieee software magazine
+online at computer.org software
+sc radio listeners we want to hear from you please visit se radio.net slash survey
+to share a little information about your professional interests and listening habits it takes less than two minutes to help us continue to make se radio even
+better your responses to the survey are completely confidential that's
+s-e-radio.net survey thanks for your support of the show we look forward to hearing from you soon
+welcome to software engineering radio i'm your host jeff doolittle i'm very excited to invite epec uskaya as our
+guest on the show today to discuss her book managing technical debt reducing friction in software development epec is
+the author of the book along with their co-authors philippe cretchen and robert nord epec is a technical director at the
+carnegie mellon software engineering institute she develops techniques for improving software development
+efficiency and system evolution she regularly works with government and industry organizations to improve their
+software architecture practices she received a phd in computational design from carnegie mellon university
+and is editor-in-chief of ieee software magazine the publisher of software engineering radio epec welcome to the
+show well thanks for having me jeff your book is titled managing technical debt
+reducing friction in software development why should listeners care about technical wealth
+oh well why shouldn't they so i think we revisit the problem of
+software maintenance and evolution and software quality software over and over again every once in a couple years
+there's a major failure that happens that attracts all of our attention then we're like okay we need to change the
+way we develop software and then we forget about it we by we i mean the software engineering
+community and software organizations really care about new functionality they develop they do care about their defects
+they do care about their security issues vulnerabilities somehow they don't care as much about the fundamental design
+problems that actually bite them in the long run and i think technical that is as a concept really puts that
+up at the front of the developers software architects as well as decision makers project managers that's reason
+one for them to care about it the other reason is if they don't care about technical debt
+in the long run they will have to deal with it one way or another and that might be too late so
+that also is another reason to care about technical debt so ignore it at your own peril exactly ignore it at your
+own peril and i think i mean it's not a new concept it was put out in 1992
+and we've kind of gone around and we keep referencing it and whatnot however what is actually has been new especially
+in the past couple of years is developers recognize it now they're talking about
+okay this is going to create more rework if we don't address some of these fundamental design
+issues that have been introduced over time into the software and i think that's important for us to recognize as
+well you made an interesting connection now twice between technical debt and design
+and i think that's an important connection to make so maybe you can expand on that a little bit and as you
+do help us understand what you mean when you say technical debt because i sometimes wonder if we all mean the same
+thing when we use that term so when we talk about technical debt what we're referring to are the shortcuts that
+development teams take sometimes for good reason maybe they haven't implemented the software as decoupled as they wanted
+maybe they did not incorporate an external system that they wanted to include that
+with the knowledge that as they keep developing the software they will have to change it to rework it so that's the
+notion of technical debt how it relates to architecture is all of these kinds of shortcuts are actually architectural
+nature they are about the structure and behavior of the system when you take a shortcut you do not want to decouple the
+different functionality in different modules or you don't want to upgrade the software that you had to upgrade those
+are the kinds of shortcuts that actually have impact in terms of the design and architectural decisions and why
+technical that is powerful we already have concepts that we refer to other aspects of the software development life
+cycle we know how to talk about use cases and stories and new functionality
+and ethics we know how to talk about defects and bugs as we develop the software we don't have to talk about the
+vulnerabilities while we do talk about architecture and design we don't have these bite-sized concepts that help us
+to manage them as we go through sprint boundaries as we go through prioritizing
+a design rework versus adding new functionality so that's i think why it's
+important for addressing both from a definition perspective as well as relating it to design and architecture
+okay so the book starts with the word managing why manage technical debt wouldn't it be better to just eliminate
+it all together first of all i know i will refer to these but one of the principles we have
+as those who read the book will realize is that any system and every system has technical debt and it's you're not going
+to be able to eliminate technical debt that's for sure so managing is that's the right way to approach it because if
+you don't manage it it's going to accumulate and also managing provides the whole benefit
+the reason technical that is important and why it's powerful to relate to the financial concept is there's a benefit
+to it when you take a shortcut or when you decide not to implement it in the way the best way
+that might sustain you for the long term you're actually creating a benefit delivering it faster or being able to
+address some value proposition in the organization so that benefit requires to be managed similar to how we manage our
+market right we don't just forget it and paid in lump sum in 30 years we pay it in regular intervals and whatnot so it's
+really that management aspect of the debt that might create value it's management
+aspect of the technical that in the software will that will create value as well so that's why it's management
+yeah an interesting you mentioned you know financial as an analogy and it has debt in it so that is interesting
+although you know 100 years ago they didn't have mortgages like we do now if you wanted to buy a house it was 50 down
+and a balloon payment in five years so that's a way to manage your technical debt but that's not what you're
+describing you're talking about more like paying it down as you go right hand it down as you go
+deciding not to pay down as you go because it might be that might be in parts of the system that doesn't change
+often that might be in parts of the system that you're going to retire and also take it on
+knowing that it's you're actually creating some value i also very strongly believe some aspects of technical debt
+can actually help you like for example you're going to learn something and then you're going to decide on the best
+design choice that actually has a lot of value and until you rework that part of
+the system that's actually value added because you're collecting information so when would you say that it becomes
+technical debt because what you just described there i you know a process that i use we start with a detailed
+design phase and then the idea is you have to throw that away you don't get to keep that in the concept there is you
+have a set of requirements we know requirements change but we're going to take a whack at it and the result of that actually should be refined
+interfaces you know speaking of architecture and refined contracts between you know how this new thing
+we're building is going to interact or what it's going to offer the other things that you're going to build so i think i might have just answered the
+question myself so maybe yeah so when would that actually become technical debt if maybe you're in a
+design phase and you're not actually going to put it into production for example so i think you
+bring up a very important and subtle point because for example if you're going through a prototyping or design
+exploration phase in your software development you might know that i'm not going to use this i'm going to throw it
+away but there's always that one percent chance that it might actually stay on the system so
+one approach could be well this is a throwaway prototype that we're doing but if it stays on these are the ways it
+might become technical that when it becomes technical that is when you start observing the negative consequences what
+might be negative consequences maybe you're trying it out but you didn't design for some of the available
+scalability or other resource requirements or you're designing it with underlying
+subsystem that you're relying on but you don't have rights to it it needs to be purchased then if it's put into production there
+are those boundaries so there are all aspects of consequences and when those consequences will actually start to be
+observed then it really becomes technical that that has higher interest as opposed to zero interest when you
+were prototyping through it so i think it really is important and that's actually what we emphasize with my
+co-authors robert nord and philippe curtin in the book it's the understanding the consequences and
+managing it to the consequences if you're able to manage the consequences it's zero percent interest rate then
+it's okay to maybe keep the technical debt on for a while yeah and as we go we'll dig i think a little bit more into
+how you compare technical debt to you know the finance world and then i think it's a really helpful analogy but before
+we dive into the principles which you referred to before the nine principles of technical debt management early in
+the introduction to the book you reference what edsger dykstra in 1972 called the software crisis
+so i would imagine that from you and your co-author's perspective you would say the industry maybe still is in
+crisis and if so how is that relevant to this subject in particular about technical
+the software industry is in crisis there's one report after another that
+comes i don't always pay too much attention to those because there's this added fear happens and there's all sorts
+of business context but i think the software industry is in crisis and has been in crisis the reason being first of
+all we're relying on it a lot increasingly the complexity of the software is increased and the complexity
+is also from the interactions right a lot of software interact with other software there's this ecosystem of
+software we're creating we have a crisis because we can't create developers in
+the rate that we need them in terms of the skill sets that are required it's a there's a crisis that technology
+changes incredibly quickly and we don't always have to catch up so all of these things and what we call in the book is
+like a debt by a thousand cuts there's a cut that happens every day in the software and some organizations manage
+it better than others and i think while we appreciate technical debt we call it technical debt
+today but we also appreciate software maintenance evolution and maintainability and sustainability
+perspectives that crisis will not go away we don't have tools we don't have vocabulary to
+talk about what might be accumulating through time in the software and i think that's important to relate technical
+debt to that complexity and the software crisis we think things will actually
+fall in place in the right way but it doesn't we still have some of the crisis and i'm not going to name any
+organizations or any part but i think every week we have a news that is with significant software that
+actually creates life-threatening risks not only financial ones so that's not going to go
+away and i think the power of technical debt and managing technical that it provides that vocabulary as well as the
+tool sets for organizations to be maybe honest with themselves right and maybe they can
+reduce the amount of crisis in their context and if enough people start doing that we you know may not fix the whole
+industry but maybe the beginnings of that can start to come to fruition well let's start diving into these nine
+principles of technical debt management that you refer to in the book so the first one states that technical debt
+reifies an abstract concept so first off i don't know if a lot of our listeners use the word refi often in
+their day-to-day conversation so speaking of abstract concepts but maybe you can start by defining reify
+for us and then explain how that describes the relationship between technical debt and abstract concepts
+so english as a second language speaker i will admit that when that word was
+actually part of our principles i personally had to go back and check okay is that really the best word we use but
+it is the best way to use because what it means is technical that is an abstract concept right we're talk
+especially in software that's why we keep talking about what is the definition how do i put my head around
+it is everything that goes bad in my software technical then so it takes that abstract concept and in this book what
+we are aiming to do is make it concrete and the way we make it concrete is we say
+first of all separate your causes from your technical debt your yes your manager who may not have made the
+right decision at the right time may have created a cause for technical debt but that's the cause yes the
+documentation not existing might be a cause of technical debt yes the requirements not illustrated might be a
+cause of technical debt but those are the causes the debt itself that you want to manage is actually something that you can
+define and put your hand around in the software system you should be able to say here is the rework that needs to happen in the
+software here are the consequences that happen if we don't do that rework and those consequences are in terms of
+harder things to add to the software or additional defects that you might be introducing and whatnot so that
+concreteness is what we're really going after with that principle so if you are not able to get it at that level of
+concreteness then maybe there are other concepts in the software engineering life cycle and the practices we have
+that might be better suited for the problem you're dealing with well and it's interesting too you mentioned
+avoiding focus so much on the cause because that often doesn't help you move forward
+unless you're doing root cause analysis to avoid the same problem in the future which makes sense but if it's turning
+into the blame game it's not really helping you it's better to just say here's what it is and so
+to reify sounds like it means to make concrete correct so technical debt makes these
+abstract concepts about what's wrong and how did we get here and why is this hit difficult and why is it getting harder
+and it makes it concrete gives us concrete concepts that we can discuss we can analyze we can evaluate and make
+decisions based on those actions is that a good summary of that i could not agree
+more and also furthermore and that's also what we emphasize in the book is
+you can concretely point it to the actual place in the code or some of
+those software development artifacts that you need to change for technical debt to disagree okay so it helps us
+connect these abstract nebulous things something's wrong and we have various ways of thinking
+about something being wrong you mentioned before you know you have technical debt when you start seeing the cost right
+something's wrong but now to be able to say okay i have a framework i have a set of concepts that i can use to sort of
+make these things concrete and distinguish things like you know the root cause isn't related to the actual
+debt itself and i can start distinguishing those concepts it really sounds like in some ways this first
+principle is telling us the book is offering us a way to think about technical debt by defining it and giving
+us ways to sort of categorize it analyze it and begin making strategies for addressing
+it correct and especially for addressing it the way you might address causes might be completely different will be
+completely different not might more than how you actually pay down the technical that that already exists like for
+example if developer turnover is creating all these confusion and each new developer that comes on introduces a
+new piece of complexity or mistake into the code that's a different problem and the strategies to fix that are completely
+different than going into the code base and fixing the problems that they have introduced so that strategies will be
+different so i think decoupling them is important so don't refer to developer turnover as your technical that refer to
+the mistakes that they have made and document them and some of them may not be technical that some of them will be
+just defects or whatnot so i think it's important from that aspect as well okay and we'll dig a little bit more into
+that later because you just made a distinction between technical dead and defects and it will be good to dive a little bit more into that in a bit but i
+think part of the distinction there you're making is between the symptoms and the diagnosis you know the symptoms
+might be we have technical debt and we have defects we have these other problems but what's the diagnosis well
+the diagnosis may be oh too much turnover and maybe turnover is not so
+bad if your developers have similar training and if you have a shared set of standards that you follow that you can
+you know adhere to you know and that they can adhere to but then in this case as you're describing you know okay we
+have technical debt why well the why is the diagnosis and the diagnosis in this case you were describing would be
+there's so much turnover but knowing that now this is that root cause analysis it would be useful okay
+why we have technical debt you know using the financial analogy used in the book is to me seems like a family that
+keeps going deeper and deeper and deeper into debt so just figuring out how to satisfy the debt is at that point not
+necessarily the only approach you want to take you also want to say why do we keep incurring debt what behaviors are
+causing us to incur debt exactly and that's also very important as i said like the way you manage
+why is completely different the way okay how do i really tackle this problem that is happening in the code
+base now right you still have to manage what's like why do i keep getting into that that's a different thing rather
+than okay i have the debt myself now i have to pay that down as well as eliminate my ability to get more into
+that i guess situation after iteration or one developer at a time or sure whichever
+way it manifests itself in your organization now perhaps this is pushing the analogy too
+far but you tell me not all debt is bad i mean if you make an investment in something you know not
+even just a mortgage but let's say you buy a piece of investment property and you take on debt in order to do so but
+on that investment property you have a building and you have a tenant and you're getting more rent from the tenant
+than you're paying on the debt for the property so in that case the debt is in a sense
+good because it's allowing you to have this investment does that apply at all when we're talking about technical debt
+of course and actually that's the power of it not all that is bad and of course i do not want to be
+empowering everybody's technical debt because like if i can stay in the se radio show said no not all that is bad
+but i think it's the really the management aspects of it because it's really software development is about
+trade-offs and that's where i actually are really related to the architecture and design these are all about
+trade-offs and we make trade-offs based on all sorts of different priorities and business concerns as well as other
+technical concerns so technical that is about having the vocabulary of
+understanding those trade-offs and what might be the consequences when those trade-offs might change
+if we don't manage it so if we're comfortable with the notion that software development and architecting is
+about trade-offs then if i'm making a trade-off that might mean i might be taking on that
+because i'm optimizing one over the other the other attribute might still turn out to be important but now i have
+a vocabulary to say you know what i made this trade off i need to watch it carefully because the
+priorities might change and should the priorities change i need to revisit the kinds of decisions i made so i think
+from that perspective definitely technical that is not all debt is bad unintentional debt that is mostly bad
+unmanaged debt is bad but being able to understand the trade-offs and how you
+express them and create value out of them is actually the power of the i think the metaphor as
+well as any design activity and technical that puts the concept around it now if you're making this tradeoff
+you have a vocabulary to express it did we have not other vocabulary of course we did we could still have put it in the
+issue tracker and say okay here's an architectural decision i made but somehow i guess the negative
+consequence didn't hit people they always happen in some teams but i never have seen it in about 20 years of
+my software architecture research and process and development as well as organization work i haven't seen that as
+a common practice i think technical that concept gives us an opportunity to maybe bring that to life
+well and you mentioned putting an architectural decision in an issue tracker and i would encourage listeners
+to read about architectural decision records which i'm sure you're familiar with and we can put a link to that in
+the show notes because in my experience yes in my experience if it ends up in the issue
+tracker it's going to go there to die and no one's ever going to see it again when they need it whereas if you put your architectural decision records
+right in your source code then they tend to stick around a little longer and and have a chance to be useful it doesn't
+guarantee they will be but anyway so that's correct and actually the same goes for technical debt as well there's
+work that has been done in terms of looking into how developers actually disclose their technical that in a part
+of their comments what is the vocabulary they use there's all sorts of typical fix me this is a hack to do
+and a significant portion of those are actually also hints for technical debt yeah absolutely yeah when you say slash
+slash hack something yeah i'd reject that pr out of hand but that's a whole other side
+so the next principle says if you do not incur any form of interest then you probably do not have actual technical
+debt and that seems to make sense if we're talking about debt then if you have a debt you owe someone and you know
+you aren't from a country or or a belief system that doesn't allow interest then you're going to be incurring interest if
+you have a debt so the book uses this analogy to try to help us i want to say quantify but i don't know how explicitly
+we can quantify technical debt but maybe you can go a little bit further for us in describing that analogy of principle
+and interest and how that pertains to managing technical debt so the interest is about the consequences and the
+principle if you do not incur any form of interest you probably do not have actual debts the key word is there the
+actual and you just ask me about technical debt not all being bad it could actually be a potential value
+creating activity that's actually related to that so if i made a trade-off
+and i recorded as a potential technical debt at the moment i am not observing
+the consequences and by consequence again maybe i am going through the actual development
+life cycle maybe i just want to ship the code so that i can actually observe how the users are reacting to it at that
+phase of the i guess system there is no debt it's run when you start
+seeing the consequences so it's really that principle tries to position the positive aspects of
+technical debt and also actually provide an opportunity it's not actual debt now
+it's potential that in the future i might need to revisit it so that's really the differentiation and also when
+you're reducing it that may not be the top priority that you start from in your rework because at the moment you're not
+observing the consequences okay so is it actually possible to have a
+system that's not incurring any interest i don't think so because otherwise that i think that would contradict the next
+principle we're going to talk about which is that all systems have technical debt so you are you're always incurring some interest you're always incurring
+some interest on the technical debt items it's just one particular design decision i will refer to it as a design
+decision you might say okay you know what i'm taking this on we will need to revisit it by the next
+iteration right at that moment that is actually not incurring interest so it's potential
+debt and in the next situation you might say you know what this is just fine so you don't manage to does technical debt
+anymore whether other items might be observing consequences it's really helpful too i think you know
+you mentioned the term has been around for a long time i myself have not really thought about it in depth in relation to
+finance but the more i think about it now it seems like if you're especially say in a startup
+which i spent a lot of my career you know doing startups so the idea is you're going to incur debt
+or you're not going to be able to get like anything done you know you're going to have to make some trade-offs that's just that's life there's always
+trade-offs but you can also get into technical debt bankruptcy and that's called you failed
+yeah right too much technical debt and eventually it's just going to literally blow up well there's that but jeff for
+startup worlds i don't have as much experience there it could be you might have a beautiful system it's just a
+business need may not be there so well that's right product market fit and those kinds
+of things there's all sorts of things the only reason you fail right there are failures like i mean we went through
+this the whole globally working from home and a lot of these systems that supported us had to scale to
+probably limits that they didn't even imagine and some of them were able to others weren't
+able to so i think we've observed that like business changes am i do i have a product that did not incur technical
+dead end could actually meet these new needs at ease or i'm sure some of these organizations had to go through very
+painful conversations internally in i guess pivoting or reworking or
+solving the problems in different ways well and it's tough too because if your debt load is high you know i before i
+use that analogy of a property owner with a building and they rent it out to someone but if they lose their tenant and they can't find another one
+before they didn't have too much debt suddenly something happened and they have way too much so i imagine that as
+you're thinking about managing technical debt here you could have it at a place that seems healthy for the meantime but
+something around you could change and suddenly your debt load is too high so that probably is i would imagine part of
+managing technical debt too is wanting to keep it at a reasonable again i know we can't explicitly quantify it but some
+sense of we are in control we are managing this and if things change around us we have a sense that we won't
+be overly leveraged and the way we refer to is there's an expected baseline and ideal state that
+the software development goes through right it might be based on new functionality that you deliver it might
+be based on the amount of i don't know code that you're able to ship in different
+organizations have different ways or it's based on the new products that are actually with the dateline whatever that ideal state of delivery is that kind of
+defines your problem with risk exposure and then technical that is like does the technical debt that you're accumulating
+actually change that ideal baseline that you have in terms of how you are able to respond to the
+needs of the organization with your software development tempo and then how does it actually change
+that so i think that helps from a risk exposure perspective different organizations have different exposures
+different organizations might be willing to take more dead on sometimes they have just complete sprints or iterations
+dedicated to reworking the system to reduce that there are different strategies but it's really based on how
+you're able to take the risk and manage it and the reason why technical that actually
+is resonated with the developers within the last decade more so than when it was first voiced by cunningham in
+1992 because it allowed them to talk about it explicitly because everybody
+knows that their software might have issues but having the vocabulary to talk explicitly help provided the opportunity
+to manage it as well so the next principle i think we've addressed in some ways principle three all systems have technical debt so maybe
+the obvious question is why did you need to explicitly call this out because we've observed
+mismanaged software systems over and over again where the goal is to really focus is the number rather than
+the outcome of the software meeting its business and mission and quality goals so you're not really trying to first of
+all we don't know how to actually even assess zero defects through zero technical that even uh with the tools
+that we have at our exposure second the systems we develop are complex
+and they evolve in ways we do or do not anticipate and that also is part of the
+overall either management construct but most importantly as i said it's about trade-offs and
+there's always a trade-off that happens in every single system so every single system has some amount of technical that
+it could be well managed very low to zero interest that's the ideal or it could be not well managed where
+you're actually really struggling with some very difficult quality issues as well as development
+issues and that's really what the differentiated we use the same similar principle when we talk about software
+architecture and systems every software system has an architecture the difference is whether you're aware of it
+and whether you've designed it versus it happens to you this is the same with technical debt as well and you mentioned
+systems multiple times and that's perfect because the next principle says technical debt must trace to the system
+so maybe describe for us the importance of that principle and what you mean by by tracing it to the system
+so this goes back to the earlier conversation we already had the confusion between what causes technical
+debt and what's actually the rework that i need to do to be able to reduce it and also getting confused in terms of the
+kitchen sink syndrome everything that goes bad in my system is technical that
+what we mean by there is like if we're talking about a technical dead item i should be able to concretely point in
+the system what rework that i will need to do if i don't manage that technical
+debt okay so rather than just saying there's that monolith over there that's a pile of technical debt correct that's
+pointing at the system but when you say tracing to the system you mean more specifically these are the portions of
+the system that will need to be changed in order to address the monolith yep i think the example you
+give is a really good one turn my monofilament to microservices great
+where do i start first of all is it even helpful to manage this as a technical that you're actually talking about a
+serious re-architecting effort which probably there's aspects of technical debt within it but there's a
+serious re-architecting going on so that's number one there and what are the specific things that need to be done and
+i'm sure within the monolith there are partials of it that are hairier to resolve than others so differentiating
+those actually would be some would be technical that others would be just routine development and re-architecting
+effort sure and of course it'd be good probably now to dispel the rumor as well that microservices have less technical
+depth than monoliths because regardless of one or the other they both can have their own
+amounts of complexity and technical debt so of course didn't want to imply one or the other was better from a technical debt please yes just using it as an
+example yeah because with microservices you could just say there they all are there's the technical and that would be
+just as bad as just pointing to the monolith and dependency explosion happens everywhere i think that's
+probably and honestly you talk about trade-offs and that you focus on architecture and
+so much of architecture i would distill down to encapsulation and dependency management and if you get those things
+right you're gonna probably do better than most exactly but i think i'm very glad you picked up on that uh jeff
+because there is no such thing as a system developed with a microservice
+architecture versus a monolith versus service oriented architecture versus whatever your most favorite
+architectural paradigm is has more or less technical that is a very irrelevant question that's not the right question
+to ask i'm following agile software development versus my historic waterfall
+whatever your most favorite software development approach i have less or more technical debt irrelevant question so
+all of these and that's why it's important every single system has technical that it's that development
+ecosystem and the activities as well as the design trade-offs that introduce it to the system well and back
+to the first principle and why i think this book is is helpful in in other ways is it is making these abstract things
+concrete but i think it's not always abstract things being made concrete it's confusing things being made clarified
+and that's i think the issue with monolith versus microsystems or agile versus waterfall is often those words
+they're a lot of times straw men they don't they don't even relate to the thing as it really was and i think that's true about both agile and
+waterfall in many cases so in a similar fashion we're saying let's talk let's actually define what techno that is and
+then we can actually deal with it once we actually know what it is and what it isn't that's actually exactly why some
+of these principles reinforce get specific get concrete trace it to
+the system don't stay at the abstract level because then you'll have the tools to
+deal with whatever the consequences or whatever the technical debt that you're incurring
+and more importantly you'll also have the tools to manage with some of the other issues that you might actually not
+have the vocabulary to manage before so that's really the point of the principles as well as the book
+sponsor for this episode is spot by netapp spot provides a comprehensive suite of cloud ops tools that make it
+easy to deliver continuously optimized and reliable infrastructure at the lowest possible cost imagine automating
+your infrastructure to proactively meet the needs of your applications imagine leveraging the latest in machine
+learning and automation to scale your infrastructure using the most efficient mix of instances and pricing models
+eliminating the risks of over-provisioning and expensive lock-in from cost management to infrastructure
+automation and cd to running serverless spark on kubernetes spot ensures you maximize your cloud investment the end
+result is simply more cloud at less cost discover how the most innovative companies from cloud native growth
+machines to forward thinking enterprises are automating simplifying and optimizing their cloud infrastructures
+with spot by netapp check them out at spot.io se radio where
+you can find more information request a demo or give a try by starting a free trial
+and that leads right into principle five technical debt is not synonymous with bad quality so we talked before you
+can't just point at the system say there's all the debt you have to trace it to these are the parts of the system that are impacted by or need to be you
+know changed in order to satisfy this technical that these kinds of things but now you're also saying it's not
+synonymous with bad quality so why why is that why wouldn't we just say bad quality is technical debt why aren't
+those the same thing so this goes back to reinforcing if you're talking about technical debt more often than not
+you're talking about the structure and the behavior the architecture of the system so bad quality is bad bad quality
+obviously there but we also have tools to deal with bad quality right we have quality assurance practices defect
+management quality conformance all those static code checkers or whatever is your most favorite approach to manage that
+those often tend to be symptoms why there are symptoms because you have bad quality you probably have also not
+structured your software properly it really hints at an underlying structure and
+behavior problem in the way the software is organized as well so that's number one number two
+early on when we started working and trying to understand the concepts around it there
+was a tendency okay fine i'm going to go to my defects all my defects are now called technical debt technical debt is
+not all bad i'm done so there's that tendency to kind of confuse concepts
+with each other as well so we wanted to decouple it the other tendency was there are quite a number of quite powerful
+static code analyzers that will actually hint at some of these issues some of them again might be symptoms but again
+all right i run my most favorite tool on my code code base it came up with 11 000
+number of conformance issues and it says the cost of the fixing them is twice the cost of the development
+effort i'm already bankrupt so those wrong ways of measuring and mapping them
+actually does not help anybody so the reason of that principle is trying to decouple it of course it's one thing to
+make these very easy examples there are some cases where things get hairy but i
+think experienced developers and software engineers have already the appreciation to be able to decouple
+them and deal with them in terms of whether technical debt or whatever else issue that they might
+actually have at hand and with that it reminds me of the distinction between data information and
+knowledge you know static analysis tool might give you data it might give you information but it doesn't give you
+knowledge and it seems to me that technical debt is and the way you're describing it and
+the way the book is you know teaching us to think about it and manage it it's helping us move from that data to
+information to actual knowledge which is good because now it's actionable and we can identify it and we
+can have conversations where we actually mean the same things by the words that we're using which is helpful if you want
+to actually communicate and you can even god forbid i use the word quantify it because now i know what i
+need to change and i can actually get concrete not be overwhelmed by the thousands of issues that i put on my in
+front of me and my software has bad quality which i might already know actually that my software has bad
+quality right and the quantification of course and i know you you you know shudder maybe to say it but this is more of a
+generalized quantification you know this isn't precision down to you know nanometers or something like that but
+it's a general sense of you know we can we can sort of size it we have a sense of the size
+right i can prioritize it i can decide whether i'm going to do it this sprint or that
+sprint and i know which developer will be able to handle it with how many
+number of days and whatever so that's the level of quantification i mean yeah so i know principle six is uh near and
+dear to both of our hearts as software architects so the principle says architecture
+technical debt has the highest cost of ownership can you tell us a little bit more about what you mean with that
+principle definitely first of all for the listeners i should probably clarify when i refer to technical that i am
+actually referring to the architectural and design constructs however what has happened in the community is
+when people identify technical debt depending on the artifact like for example i do a code analysis and that's
+how i'm talking about technical that i call it my code debt if i'm talking about my infrastructure i call it my
+deployment debt or my security debt i think that actually creates and adds
+to the confusion there are two reasons one we're talking when we're talking about technical that
+we're talking about rework and the trade-offs that it enforces and also
+when we talked about okay quality relates to some of the structure and behavior of the software
+or when we say when you have all sorts of complexity added to the software you
+incur technical debt we're always talking about these accumulated design aspects of it so that's important and
+also why it's highest because it becomes layers and layers of implementation on top of a wrong structure to start with
+reworking that actually has a lot of accumulation so for both reasons architecture has the highest cost of all
+ownership technical that is about architecture more than other things you might be discovering technical debt
+through other artifacts but at the end resolution is often architectural so that principle is trying to
+highlight that strong relationship between technical and architectural design choices
+so if we had cost on the vertical axis and we had poor design on the left of
+the x and good design going towards the right of the x-axis then we would basically see
+that the highest point on the curve would be poor design and it would slope down as you got
+closer to improved and better design correct okay so if you want a high cost of ownership on your system design it
+poorly and we are not the first to actually point that out there all sorts of even
+the flow and lean software methodologies have actually put today it's really the backlog and how you're pulling things
+and what is the rate of addressing some of these issues that also are related to
+how you're bringing the cast on with good design principle seven all code matters really
+i mean my code matters more than others i can hear people thinking no but any but seriously like what kind of code is
+there that isn't treated like it doesn't matter this again i mean all principles we went through multiple situations
+there's actually i've been conversations that felipe brought and i had through them all all code matters because
+resolving technical that or discovering is not just on the code or not the first of all it's really you need to bring it
+back to the implementation yet for example the test code matters there
+as well because we've actually have examples where developers tweak the test
+code to make the test pass but it actually was on hiding technical debt so there's that traceability between the
+implementation the test and the infrastructure there's a lot of now with the cicd and the devops age we're going
+through a lot of build and infrastructure codes that actually can incur technical debts which might uh
+hinder your ability to develop and the tempo that you're actually developing at so it's really a technical that maps to
+the rework that you need to do in the code and it's thought through in the from the design concept so that's really
+what we're trying to emphasize but mostly it was our observation that we allow
+lower bar on test and infrastructure code which i think in the long run creates more negative outcomes rather
+than positive ones and to your previous points that involves architecture meaning you
+have an architecture for your infrastructure code and you have an architecture for your test code it just
+may not be a good one correct and that will show in pain and when you see that pain you can start to
+say ah there's some debt here there's some technical that here because the design is showing us pain
+and the alignment also right when i fix my code did i actually align my tests and build infrastructure with the fixes
+i made and sometimes there's all sorts of mismatches that happen with that alignment that we've observed actually
+created significant issues and sometimes the time spent is not necessarily on the
+fixing that but the time spent is finding where the issues are because of the misalignment that might be introduced in the process right and i
+think this principle helps too because you know we've talked a lot about systems and i think that's part of the
+point here is a system is going to have a lot of code of different kinds and qualities and sometimes some people
+might have a tendency to say well my code matters or the code i understand matters or the code in front of me matters but we're
+building a system and so even though i might be developing you know a specific piece of
+functionality for the system in code that doesn't mean i can ignore deployment pipelines because there might
+be an impact say you know some helm chart out there i mean maybe i don't know everything about how kubernetes
+runs but i also can't say it doesn't matter because it's someone else's
+role or task or whatever right that code still matters correct and actually it also relates
+itself to when you actually have to interface with external systems a typical example we use to demonstrate
+this is in a example system that we worked with the system crashes developers identify
+it patch it the system crashes again for the same reason developers identify patchett after quite
+a number of patches i think the number was 28 or something one of the developers say you know what something
+else is going on here well the crash was injected to the system because of an api
+with an external software system they never patched it in the source hence they kept actually having have to find
+what was going on so this is again the fix is not difficult finding the root cause of the fix within the system is
+difficult and all code matters because it's not even called your own it's called to you actually come from an
+external system well and i think too it relates to quality in a in an interesting way you know i think of the
+the o-ring problem with the space shuttle and my understanding although i might have to to verify this is that the
+o-rings used on the space shuttle were also used all the way back in the apollo program and the only reason they didn't
+discover it back then is because they didn't have the rocket go through a period of freezing temperatures and it
+was only when that occurred that we finally had the columbia disaster or was it the challenger disaster it was a
+challenger disaster in the 80s so in a similar way in that case all components matter i mean a simple o-ring a simple
+quote-unquote o-ring in a complex system led to catastrophe and i think in a similar way here if we
+say all code doesn't matter we might just be setting ourselves up for catastrophe in ways we cannot yet envision or imagine
+and also we see this a lot with legacy software because way back when
+for example to optimize for performance not all of the security
+principles were implemented the way they were like they were disabled for one reason or another because we didn't have
+as powerful processes and whatnot but now we have still the same software but we have more opportunities for
+attackers and those areas because actually issues in the software system again
+at the time if we had the vocabulary those implementers could have said you know what we're disabling these things
+to optimize performance should our hardware and software change please
+enable them again so that we don't have to deal with some of the consequences i think those subtleties become important
+as software evolves as well and that's a wonderful point because that expands the meaning of this to
+another level it's it's meta all code matters meaning all the code everywhere ever written
+matters because you never know which of that code could create a problem for you even if you're not
+involved in the development of the system when you think of disasters that are software related literally you're
+saying all code matters and it goes back to the earlier conversation we had with the
+software crisis why do we have software crisis because we go through these evolutions at the time we're doing the
+right thing like in this example disabling the checks was the right thing because we're trying to optimize for
+performance latency which is important for the software's behavior yet now we
+have a different situation if we have the vocabulary to express it the new
+owners of the software will actually know what to check for what to look for and know where they are located because
+now there's a vocabulary to be able to actually trace it so that's it's really about all code matters and the
+collective ownership not within the team but i guess within the overall life cycle of the software system
+well let's move on to principle eight which says technical debt has no absolute measure
+neither for principle nor interest and of course this is why previously when we mentioned quantification i know we both
+kind of backed away from that a little bit but if it has no absolute measure we've spoken a little bit about
+principle and interest but talk to us a little bit more now about how we can measure it even if we don't have
+absolute measures for it so one of the things that early on a lot of the organizations got excited about
+is like okay great now i have the vocabulary technical that i'm going to run a tool press a button it's going to
+tell me the dollar amount i am going to compare this with the other software i'm going to decide or i'm going to compare
+this with whatever i'm being delivered i will pay or pay not so i am very sorry to disappoint everyone
+who's looking for this that is never going to happen what measurement comes down to is first
+of all recording it if we start recording it explicitly then we'll know how much of our systems development
+effort is going into technical debt but the other is being able to understand what rework means right when am i going
+to rework the each technical dead item and what does it mean and how cumulatively and as the number of items
+that appear mean in terms of the measurement the principle which is at the time when you're taking technical
+debt that's actually even harder because systems will evolve and resolving the debt might actually be a
+different architecture lower design strategy than what you have already once started with so that's not an apple
+strapless comparison let me bring back the financial metaphor if i'm taking ten
+thousand dollars of uh debt i'm paying back 10 000 plus its interest in the
+software sense if i'm making a design trade-off picking one over the other when i do a different design choice i
+may not actually be redoing in the same way i might alcohol have a completely different approach to it so that's
+really trying to put them as apples to apples comparison is difficult i think finally we're moving away from it i see
+more and more development teams recognizing okay let's at least enumerate what we mean what we are
+talking about when we're talking about technical debt so we can measure the consequences we can measure the rework
+we can definitely measure some of the downstream impacts of technical debt but
+comparing them between different systems or trying to think that this particular system has an amount of technical that
+is not the right way to think about it and the book we can't obviously go into all the details that's why listeners
+will need to get a copy of the book but there are helpful diagrams and also helpful conversations about different
+sizes of companies or different sizes of systems and the kinds of technical that they they might incur and my question
+there is i think i recall but but tell me if i'm misremembering here that there's even possibly different
+measurements for the different sizes of companies or different things you're going to focus on is that correct of course i mean it's really the
+fundamentally how you're looking into the consequences and your ideal development
+i guess baseline that you're talking about in one organization the consequence of technical debt might
+actually incur as you are not able to add new functionality fast enough in another organization the consequence of
+technical that might incur as you keep is observing more defects because there's relationship with some of these
+in another organization it might actually be so complex that you are not able to onboard developers so what it
+actually the consequence maps to might be different so there are different metrics the good news is these metrics
+or these measurement techniques are not foreign to the software engineers we already have these that are disposable
+we are already doing it we're already using some of the devops pipelines and
+introducing tools to do some of these checks it's really stepping back and as you said what is the knowledge that
+those information is providing us that would actually be worthwhile to communicate to the rest of the system
+developers as well as other stakeholders as okay here's a technical dead item and
+we need to talk about this at our sprint as well as as we're doing our planning for
+our resource allocation and the final principle is technical debt depends on the future evolution of
+the system how can we depend on the future when we don't know the future
+that's a good question and i think it's about the accumulation of the consequences and the rework so
+when we decide whether i would like to actually reduce or rework this particular aspect of the
+system or not we're making a decision even today without the technical that
+concept we're making the decision based on our anticipated use of the system in the future so that anticipated use
+puts a stress or not on the particular system with or without technical debt and i assess it based on that
+anticipated use and rework because if i don't anticipate that part of the system that has technical debt to change often
+or the consequences not observed then i would not have any reason to spend resources on paying it down
+so that's really what it's trying to emphasize and that's how we make our decisions when we're making our other
+system prioritization decisions as well so it's not just unique to technical that it's
+actually the way our planning works well we've also talked a lot about design and architecture so i imagine in
+good design so you know future evolution wouldn't that be constrained somewhat by
+a better design which would then affect the impact of technical debt on you going forward meaning the evolution of
+the system will be constrained somewhat by the architecture and the design of the system of course yes yes and that's
+actually the moment you put a design or version one system out there you're already providing constraints
+to how you're actually going to evolve it and then the question is well whether you'll be able to live with those constraints that the current
+architecture poses versus whether you need to relax these concerns which is re-architect and rework the system
+yeah and i'd point listeners back to a previous episode with yuval loewy on his book writing software where he talks
+about ways that you can define these components of your system or these these interfaces and contracts between the
+systems in ways that actually can help you constrain the system so that as it evolves you're not constantly evolving
+your architecture because if you're constantly involved in your architecture your your system is going to be unwieldy
+and complex and and you're probably going to have a lot of technical debt and that's also you mentioned earlier a
+good design actually reduces your risk of taking on technical debt because
+you've made some of these trade-offs early on this doesn't mean design upfront this doesn't mean you don't
+evolve your system but it really is really understanding what are some of the constraints understanding dry
+architectural drivers understanding how they will actually which ones might change which may not change sure well
+and you mentioned design upfront i'd clarify that with big design upfront which is also i think become a straw man and a boogeyman and it gets bandied
+about just like yagni you ain't gonna need it and what ends up happening is no design up front and i think what we need
+is just enough or you know some design up front that's enough but definitely not no design as a response to too much
+design listeners may or may not agree with me on this these are my personal i guess
+beliefs that i'm very strongly become i guess standing behind them when you're talking about technical debt you're
+really talking about and design and architecture trade-offs and their rework consequences own it that's number one
+and number two is assuming that you don't know anything and things will emerge
+is really not looking into your problem uh carefully enough there are always things that will not change as quickly
+as you anticipate and there will always be some of the drivers that will actually be there that will help you
+make the design choices early on and then you can iterate on it and continuously evolve the system but
+assuming that you will not you know nothing about to be able to make architectural decisions is probably a naive perspective
+so if i'm a listener and i want to begin taking action based on what i've learned
+and i want to get a copy of the book and and have some next steps my first question might be
+this sounds like a lot of work identifying technical debt and tracking technical debt and quantifying technical
+even though it's not absolute but some quantification so what's your response to listeners for say different sides of
+system or different sizes of team you know who obviously would have different constraints in that regard but
+if they say this just seems too daunting i'm not going to take the time how do you respond to them so i would
+appreciate if it's dawning from the perspective of okay i have never heard of the concept so how do i relate it
+with things i know that i have some appreciation for because in a way technical debt puts the concepts that
+we've already known i said architectural trade-offs design trade-offs software maintainability and rework
+with a different eye so that there's vocabulary so that i might appreciate until they've done some homework however
+the rest i think we already do anyways developers already talk about technical that developers already talk about
+aspects of their system that is hard to rework they already know i think all these little concepts that
+are introduced into the comments hacked me to do this is bad
+with all sorts of vocabulary so there's actually already existing techniques existing practices that we
+have just i think if they want to do one thing that one thing is start
+putting technical debt to whatever system that you're using to communicate tasks
+user stories defects whatever you call them into whatever system you're using
+and identify it with a clear label that's why you at least have okay
+are we overdoing it are we on the same page are we really identifying things that are going to
+cause us pain in the long run that will create information for the team and that's really not a very daunting task
+and after that you can use whatever you're using already as part of your software project management
+and software release planning iteration planning practices it's really that easy
+from that perspective right so as i was saying before we were discussing design you want just enough
+design i imagine it's similar here with management if you're a small team versus a large team your technical debt
+management principles might differ and also if you're a small team you it might be
+good enough just to talk to each other versus if you're a large team and running a large organization there's more coordination and organization
+needed and obviously then the consequences also snowball a lot quicker as well
+right but the book would still be helpful for the small team i imagine from the standpoint of clarifying what they're talking about
+even if talking about is all they need to do and also to make sure that
+i would assume a small team might be a startup right and if you really want to be a large team
+what do you really need to be able to be aware of in that role so i think small teams might take all different flavors
+as well depending on what kind of a domain you're in but yes i think regardless of the team size and the
+project size i think this is a fundamental concept that we need to teach our software engineers
+and that's also important to recognize well if people want to find out more about what you're up to where can they
+go i work at carnegie mellon university software engineering institute all of
+the practices that we develop are actually available we share that's why it's exciting to be in this show so that
+we can actually share some of this knowledge with our listeners as well and our website is www.sci
+and our blog post podcasts as well as some of the papers that we've written including case studies are available
+there as well as the book if anybody is interested great well thanks so much for joining me today
+on software engineering radio epec well thanks for having me jeff this is jeff doolittle for software
+engineering radio thanks for listening thanks for listening to sc radio an educational program brought to you by
+ieee software magazine for more about the podcast including other episodes visit our website at se
+radio.net to provide feedback you can comment on each episode on the website or reach us
+on linkedin facebook twitter or through our slack channel at scradio.slack.com
+you can also email us at team sc-radio.net this and all other episodes of sc radio
+is licensed under creative commons license 2.5 thanks for listening
