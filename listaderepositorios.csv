@@ -5,7 +5,6 @@ Data storage and management;cassandra;https://github.com/apache/cassandra.git;Di
 Data storage and management;chukwa;https://github.com/apache/chukwa.git;Data collection
 Data storage and management;jackrabbit;https://github.com/apache/jackrabbit.git;Content Repository
 Data storage and management;jackson;https://github.com/FasterXML/jackson.git;Data biding library
-Web engines and web tools;httpcomp;https://github.com/vy/httpcomp.git;HTTP Toolset
 Web engines and web tools;jspwiki;https://github.com/apache/jspwiki.git;Wiki Engine
 Web engines and web tools;retrofit;https://github.com/square/retrofit.git;Android HTTP client
 Web engines and web tools;spring-boot;https://github.com/spring-projects/spring-boot.git;Spring-based project manager
@@ -16,7 +15,7 @@ Search engines;lucene;https://github.com/apache/lucene-solr.git;Search engine
 Search engines;tika;https://github.com/apache/tika.git;Content Analysis Toolkit
 Development tools;ant-ivy;https://github.com/apache/ant-ivy.git;Dependecy Manager
 Development tools;jenkins;https://github.com/jenkinsci/jenkins.git;Automation server
-Development tools;jgit;https://github.com/eclipse/jgit.git;Java implementation of Git
+Development tools;jgit;https://github.com/spearce/jgit.git;Java implementation of Git
 Development tools;selenium;https://github.com/SeleniumHQ/selenium.git;Automation Web libraries
 Development tools;testng;https://github.com/cbeust/testng.git;Testing framework
 Document manipulation;pdfbox;https://github.com/apache/pdfbox.git;PDF library
