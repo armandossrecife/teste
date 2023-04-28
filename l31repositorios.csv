@@ -18,7 +18,7 @@ repositorio16,jenkins,core.src.main.java
 repositorio17,jgit,org.eclipse.jgit.src.org.eclipse.jgit
 repositorio18,selenium,java.src
 repositorio19,testng,testng-core.src.main.java
-repositorio20,pdfbox.src.main.java
+repositorio20,pdfbox,pdfbox.src.main.java
 repositorio21,poi,poi.src.main.java
 repositorio22,xerces2-j,src.org.apache.xerces
 repositorio23,druid,server.src.main.java
