@@ -15,7 +15,7 @@ repositorio13,https://github.com/apache/lucene-solr.git,lucene-solr,nao tem o sr
 repositorio14,https://github.com/apache/tika.git,tika,tika-core/src/main/java
 repositorio15,https://github.com/apache/ant-ivy.git,ant-ivy,src/java
 repositorio16,https://github.com/jenkinsci/jenkins.git,jenkins,core/src/main/java
-repositorio17,https://github.com/spearce/jgit.git,jgit,org/eclipse/jgit/src
+repositorio17,https://github.com/spearce/jgit.git,jgit,org.eclipse.jgit/src
 repositorio18,https://github.com/SeleniumHQ/selenium.git,selenium,java/src
 repositorio19,https://github.com/cbeust/testng.git,testng,testng-core/src/main/java
 repositorio20,https://github.com/apache/pdfbox.git,pdfbox,pdfbox/src/main/java
