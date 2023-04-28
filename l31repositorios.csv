@@ -1,31 +1,31 @@
-repositorio, projeto, source
-repositorio1, accumulo, core.src.main.java
-repositorio2, calcite, core.src.main.java
-repositorio3, cassandra, src.java
-repositorio4, chukwa, core.src.main.java
-repositorio5, jackrabbit, jackrabbit-core.src.main.java
-repositorio6, jackson, nao tem o src the Java JSON library
-repositorio7, jspwiki, jspwiki-api.src.main.java
-repositorio8, retrofit, retrofit.src.main.java
-repositorio9, spring-boot, spring-boot-project.spring-boot.src.main.java
-repositorio10, struts, core.src.main.java
-repositorio11, elasticsearch, server.src.main.java
-repositorio12, jena, jena-core.src.main.java
-repositorio13, lucene-solr, nao tem o src lucene-solr
-repositorio14, tika, tika-core.src.main.java
-repositorio15, ant-ivy, src.java
-repositorio16, jenkins, core.src.main.java
-repositorio17, jgit, org.eclipse.jgit.src.org.eclipse.jgit
-repositorio18, selenium, java.src
-repositorio19, testng, testng-core.src.main.java
-repositorio20, pdfbox.src.main.java
-repositorio21, poi, poi.src.main.java
-repositorio22, xerces2-j, src.org.apache.xerces
-repositorio23, druid, server.src.main.java
-repositorio24, pgjdbc, pgjdbc.src.main.java
-repositorio25, activemq, activemq-http.src.main.java
-repositorio26, mina, core.src.main.java
-repositorio27, libgdx, gdx.src
-repositorio28, fastjson, src.main.java
-repositorio29, gson, gson.src.main.java
-repositorio30, guava, guava.src
+repositorio,projeto,source
+repositorio1,accumulo,core.src.main.java
+repositorio2,calcite,core.src.main.java
+repositorio3,cassandra,src.java
+repositorio4,chukwa,core.src.main.java
+repositorio5,jackrabbit,jackrabbit-core.src.main.java
+repositorio6,jackson,nao tem o src the Java JSON library
+repositorio7,jspwiki,jspwiki-api.src.main.java
+repositorio8,retrofit,retrofit.src.main.java
+repositorio9,spring-boot,spring-boot-project.spring-boot.src.main.java
+repositorio10,struts,core.src.main.java
+repositorio11,elasticsearch,server.src.main.java
+repositorio12,jena,jena-core.src.main.java
+repositorio13,lucene-solr,nao tem o src lucene-solr
+repositorio14,tika,tika-core.src.main.java
+repositorio15,ant-ivy,src.java
+repositorio16,jenkins,core.src.main.java
+repositorio17,jgit,org.eclipse.jgit.src.org.eclipse.jgit
+repositorio18,selenium,java.src
+repositorio19,testng,testng-core.src.main.java
+repositorio20,pdfbox.src.main.java
+repositorio21,poi,poi.src.main.java
+repositorio22,xerces2-j,src.org.apache.xerces
+repositorio23,druid,server.src.main.java
+repositorio24,pgjdbc,pgjdbc.src.main.java
+repositorio25,activemq,activemq-http.src.main.java
+repositorio26,mina,core.src.main.java
+repositorio27,libgdx,gdx.src
+repositorio28,fastjson,src.main.java
+repositorio29,gson,gson.src.main.java
+repositorio30,guava,guava.src
