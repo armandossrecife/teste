@@ -1,0 +1,31 @@
+repositorio,url,nome,source_java
+repositorio1,https://github.com/apache/accumulo.git,accumulo,core/src/main/java
+repositorio2,https://github.com/apache/calcite.git,calcite,core/src/main/java
+repositorio3,https://github.com/apache/cassandra.git,cassandra,src/java
+repositorio4,https://github.com/apache/chukwa.git,chukwa,core/src/main/java
+repositorio5,https://github.com/apache/jackrabbit.git,jackrabbit,jackrabbit-core/src/main/java
+repositorio6,https://github.com/FasterXML/jackson.git,jackson,nao tem o src the Java JSON library
+repositorio7,https://github.com/apache/jspwiki.git,jspwiki,jspwiki-api/src/main/java
+repositorio8,https://github.com/square/retrofit.git,retrofit,retrofit/src/main/java
+repositorio9,https://github.com/spring-projects/spring-boot.git,spring-boot,spring-boot-project/spring-boot/src/main/java
+repositorio10,https://github.com/apache/struts.git,struts,core/src/main/java
+repositorio11,https://github.com/elastic/elasticsearch.git,elasticsearch,server/src/main/java
+repositorio12,https://github.com/apache/jena.git,jena,jena-core/src/main/java
+repositorio13,https://github.com/apache/lucene-solr.git,lucene-solr,nao tem o src lucene-solr
+repositorio14,https://github.com/apache/tika.git,tika,tika-core/src/main/java
+repositorio15,https://github.com/apache/ant-ivy.git,ant-ivy,src/java
+repositorio16,https://github.com/jenkinsci/jenkins.git,jenkins,core/src/main/java
+repositorio17,https://github.com/spearce/jgit.git,jgit,org/eclipse/jgit/src/org/eclipse/jgit
+repositorio18,https://github.com/SeleniumHQ/selenium.git,selenium,java/src
+repositorio19,https://github.com/cbeust/testng.git,testng,testng-core/src/main/java
+repositorio20,https://github.com/apache/pdfbox.git,pdfbox,pdfbox/src/main/java
+repositorio21,https://github.com/apache/poi.git,poi,poi/src/main/java
+repositorio22,https://github.com/apache/xerces2-j.git,xerces2-j,src/org/apache/xerces
+repositorio23,https://github.com/apache/druid.git,druid,server/src/main/java
+repositorio24,https://github.com/pgjdbc/pgjdbc.git,pgjdbc,pgjdbc/src/main/java
+repositorio25,https://github.com/apache/activemq.git,activemq,activemq-http/src/main/java
+repositorio26,https://github.com/apache/mina.git,mina,core/src/main/java
+repositorio27,https://github.com/libgdx/libgdx.git,libgdx,gdx/src
+repositorio28,https://github.com/alibaba/fastjson.git,fastjson,src/main/java
+repositorio29,https://github.com/google/gson.git,gson,gson/src/main/java
+repositorio30,https://github.com/google/guava.git,guava,guava/src
