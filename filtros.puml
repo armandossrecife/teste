@@ -1,0 +1,56 @@
+@startuml
+
+class Download {
+  - url: str
+  - path_arquivo: str
+  + __init__(url: str, path_arquivo: str)
+  + download_file(): None
+}
+
+class Imagem {
+  - minha_imagem: Image
+  - id: int
+  - nome_arquivo: str
+  - local_referencia: str
+  + __init__(id: int, nome_arquivo: str, path_arquivo: str)
+  + dimensoes(): Tuple(int, int)
+  + tamanho(): int
+  + formato(): str
+  + conteudo(): Image
+  + __str__(): str
+}
+
+class Util {
+  + extrair_nome_extensao_url(url: str): Tuple(str, str)
+  + wait_for_file(file_path: str, interval: int): None
+}
+
+class Main {
+  - utilidades: Util
+  + __init__(utilidades: Util)
+  + cria_imagem(minha_url: str): Image
+  + aplica_filtro_grayscale(minha_imagem: Image, nome: str): None
+  + aplica_filtro_black_and_white(minha_imagem: Image, nome: str): None
+  + aplica_filtro_edges(minha_imagem: Image, nome: str): None
+}
+
+class BlackAndWhiteFilter {
+  + apply(image: Image): Image
+}
+
+class GrayscaleFilter {
+  + apply(image: Image): Image
+}
+
+class EdgesFilter {
+  + apply(image: Image): Image
+}
+
+Main --> Util
+Main --> Download
+Main --> Imagem
+Main --> BlackAndWhiteFilter
+Main --> GrayscaleFilter
+Main --> EdgesFilter
+
+@enduml
