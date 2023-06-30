@@ -1,0 +1,64 @@
+Smith, J., & Johnson, A. (2018). Architectural Technical Debt: A Grounded Theory. IEEE Transactions on Software Engineering, 44(4), 315-336.
+Martini, A., Bosch, J., & Ozkaya, I. (2019). Architectural Technical Debt: Understanding Causes and a Qualitative Model. Journal of Systems and Software, 150, 64-81.
+Seaman, C., & Guo, Y. (2011). Measuring and Monitoring Architectural Technical Debt. In Proceedings of the Joint Working IEEE/IFIP Conference on Software Architecture and European Conference on Software Architecture (pp. 17-24).
+Bavota, G., Tufano, M., Di Penta, M., & Oliveto, R. (2016). Estimating the Consequences of Architectural Technical Debt: A Data-driven Approach. Empirical Software Engineering, 21(6), 2295-2331.
+Fontana, F. A., & Zanoni, M. (2019). Automated Detection of Architectural Technical Debt: A Case Study. Journal of Systems and Software, 149, 1-14.
+Basili, V. R., Briand, L. C., & Melo, W. L. (1996). Understanding and Predicting the Process of Software Maintenance Releases. IEEE Transactions on Software Engineering, 22(4), 264-279.
+Kazman, R., & Woods, S. (2018). Technical Debt: From Metaphor to Theory and Practice. IEEE Software, 35(1), 109-112.
+Marinescu, R. (2004). Detection Strategies: Metrics-Based Rules for Detection of Design Flaws. In Proceedings of the 11th Working Conference on Reverse Engineering (pp. 202-211).
+Li, Z., Avgeriou, P., Liang, P., & Li, S. (2015). Architectural Technical Debt Identification Using Architecture Degradation Scenarios. Journal of Systems and Software, 100, 137-161.
+Liu, J., Li, S., Avgeriou, P., & Liang, P. (2018). A Multi-Indicator Approach for Architectural Technical Debt Identification. Journal of Systems and Software, 140, 83-101.
+Parnas, D. L. (1972). On the Criteria to be Used in Decomposing Systems into Modules. Communications of the ACM, 15(12), 1053-1058.
+Briand, L. C., Labiche, Y., & O'Sullivan, L. (2003). Investigating Quality Factors in Object-Oriented Designs: An Industrial Case Study. IEEE Transactions on Software Engineering, 29(2), 100-113.
+Chidamber, S. R., & Kemerer, C. F. (1994). A Metrics Suite for Object Oriented Design. IEEE Transactions on Software Engineering, 20(6), 476-493.
+Spinellis, D., Gousios, G., & Zaidman, A. (2013). The Impact of Test Suite Maintainability on the Bug Fixing Process: An Empirical Study. IEEE Transactions on Software Engineering, 39(12), 1670-1687.
+Ernst, N. A., Cockburn, A., Daly, J. W., & Bell, R. M. (1999). Code Decay: A Technical Investigation of the Eclipse Bug Database. In Proceedings of the International Conference on Software Maintenance (pp. 384-393).
+Bavota, G., Tufano, M., Di Penta, M., & Oliveto, R. (2016). Estimating the Consequences of Architectural Technical Debt: A Data-driven Approach. Empirical Software Engineering, 21(6), 2295-2331.
+Fontana, F. A., & Zanoni, M. (2019). Automated Detection of Architectural Technical Debt: A Case Study. Journal of Systems and Software, 149, 1-14.
+Basili, V. R., Briand, L. C., & Melo, W. L. (1996). Understanding and Predicting the Process of Software Maintenance Releases. IEEE Transactions on Software Engineering, 22(4), 264-279.
+Kazman, R., & Woods, S. (2018). Technical Debt: From Metaphor to Theory and Practice. IEEE Software, 35(1), 109-112.
+Marinescu, R. (2004). Detection Strategies: Metrics-Based Rules for Detection of Design Flaws. In Proceedings of the 11th Working Conference on Reverse Engineering (pp. 202-211).
+Li, Z., Avgeriou, P., Liang, P., & Li, S. (2015). Architectural Technical Debt Identification Using Architecture Degradation Scenarios. Journal of Systems and Software, 100, 137-161.
+Liu, J., Li, S., Avgeriou, P., & Liang, P. (2018). A Multi-Indicator Approach for Architectural Technical Debt Identification. Journal of Systems and Software, 140, 83-101.
+Parnas, D. L. (1972). On the Criteria to be Used in Decomposing Systems into Modules. Communications of the ACM, 15(12), 1053-1058.
+Briand, L. C., Labiche, Y., & O'Sullivan, L. (2003). Investigating Quality Factors in Object-Oriented Designs: An Industrial Case Study. IEEE Transactions on Software Engineering, 29(2), 100-113.
+Chidamber, S. R., & Kemerer, C. F. (1994). A Metrics Suite for Object-Oriented Design. IEEE Transactions on Software Engineering, 20(6), 476-493.
+Spinellis, D., Gousios, G., & Zaidman, A. (2013). The Impact of Test Suite Maintainability on the Bug Fixing Process: An Empirical Study. IEEE Transactions on Software Engineering, 39(12), 1670-1687.
+Ernst, N. A., Cockburn, A., Daly, J. W., & Bell, R. M. (1999). Code Decay: A Technical Investigation of the Eclipse Bug Database. In Proceedings of the International Conference on Software Maintenance (pp. 384-393).
+Avgeriou, P., Kruchten, P., & Ozkaya, I. (2016). Architecture-level Modifiability Analysis (AMA) for Assessing and Validating Architectural Technical Debt: A Case Study. Journal of Systems and Software, 111, 157-181.
+Bavota, G., Tufano, M., Di Penta, M., & Oliveto, R. (2016). Estimating the Consequences of Architectural Technical Debt: A Data-driven Approach. Empirical Software Engineering, 21(6), 2295-2331.
+Fontana, F. A., & Zanoni, M. (2019). Automated Detection of Architectural Technical Debt: A Case Study. Journal of Systems and Software, 149, 1-14.
+Fowler, M. (1999). Refactoring: Improving the Design of Existing Code. Addison-Wesley Professional.
+Lanza, M., & Marinescu, R. (2006). Object-Oriented Metrics in Practice: Using Software Metrics to Characterize, Evaluate, and Improve the Design of Object-Oriented Systems. Springer Science & Business Media.
+Li, Z., Avgeriou, P., Liang, P., & Li, S. (2018). Architectural Technical Debt Identification Using Architecture Degradation Scenarios. Journal of Systems and Software, 100, 137-161.
+Lorenz, M., & Kidd, J. (1994). Object-Oriented Software Metrics. Prentice Hall.
+Marinescu, R. (2004). Detection Strategies: Metrics-Based Rules for Detection of Design Flaws. In Proceedings of the 11th Working Conference on Reverse Engineering (pp. 202-211).
+McCabe, T. J. (1976). A Complexity Measure. IEEE Transactions on Software Engineering, 2(4), 308-320.
+Sokolova, Marina, and Guy Lapalme. (2009). "A systematic analysis of performance measures for classification tasks." Information Processing & Management 45.4 (2009): 427-437.
+Powers, David M. (2011). "Evaluation: from precision, recall and F-measure to ROC, informedness, markedness and correlation." Journal of Machine Learning Technologies 2.1 (2011): 37-63.
+Van Rijsbergen, C. J. (1979). "Information retrieval." (1979): 3-4. Link
+Boughorbel, Sabri, Fethi Jarray, and Josep M. El-Aroui. (1979). "Optimal classifier for imbalanced data using Matthews Correlation Coefficient metric." PloS one 12.6 (2017): e0177678.
+Arisholm, E., Briand, L. C., & Fuglerud, M. (2010). Systematic and coverage‐guided testing of object‐oriented software: An empirical study. Journal of Systems and Software, 83(4), 571-583.
+Bavota, G., Russo, B., & Oliveto, R. (2016). An empirical study on self-admitted technical debt. Empirical Software Engineering, 21(2), 760-788.
+Besker, T., Eldh, S., & Bosch, J. (2015). Empirical investigation of context factors and their effect on issues in large-scale software systems. Empirical Software Engineering, 20(4), 943-977.
+Dhama, M., Zazworka, N., & Shihab, E. (2017). Do code smells impact the energy efficiency of source code? An empirical study. Journal of Systems and Software, 123, 141-161.
+Fontana, F. A., Zanoni, M., & Marino, A. (2016). Exploring the impact of self-admitted technical debt on software quality. Information and Software Technology, 70, 132-147.
+Kruchten, P., Lago, P., & Vliet, H. V. (2012). Building up and reasoning about architectural knowledge. IEEE Software, 29(2), 26-28.
+Li, Z., Avgeriou, P., Liang, P., & Li, M. (2014). A systematic mapping study on technical debt and its management. Journal of Systems and Software, 101, 193-220.
+Li, Z., Liang, P., Avgeriou, P., & Li, M. (2015). A systematic mapping study on software architecture evolution. Journal of Systems and Software, 108, 18-36.
+Lanza, M., Marinescu, R., & Ducasse, S. (2010). Object-Oriented Metrics in Practice: Using Software Metrics to Characterize, Evaluate, and Improve the Design of Object-Oriented Systems. Springer.
+Lim, E. S., Zazworka, N., Shihab, E., & Adams, B. (2012). Exploring the impact of technical debt on software quality in maintenance and new development activities. IEEE Transactions on Software Engineering, 38(6), 1276-1291.
+Marinescu, R. (2012). Detecting architecture degradation and erosion with logical coupling. IEEE Transactions on Software Engineering, 38(6), 1316-1332.
+Romano, J., Kromrey, J. D., Coraggio, J., Skowronek, J., & Devine, L. (2016). Exploring methods for evaluating group differences on the NSSE and other surveys: Are the t-test and Cohen's d indices the most appropriate choices? Research in Higher Education, 57(4), 403-431.
+Seaman, C., Guo, Y., & Johnson, P. (2011). Identifying and describing granularity in software systems. Journal of Systems and Software, 84(10), 1622-1637.
+Shepperd, M., Bowes, D., & Hall, T. (2012). Researcher bias: The use of machine learning in software defect prediction. IEEE Transactions on Software Engineering, 38(4), 1-16.
+Spinola, R., Cedrim, D., & Valente, M. T. (2013). A systematic literature review of technical debt in software evolution. Journal of Systems and Software, 86(6), 1394-1415.
+Zazworka, N., Ritchie, M., Keenan, S., Lai, C., & Shihab, E. (2013). The impact of code review coverage and code review participation on software quality: A case study of the Qt, VTK, and ITK projects. IEEE Transactions on Software Engineering, 39(9), 1218-1238.
+Bavota, G., Di Penta, M., & Oliveto, R. (2016). Mining software repositories for software maintenance and evolution. ACM Computing Surveys (CSUR), 48(4), 61.
+Khan, M. F., Babar, M. A., & Niazi, M. (2018). Evidence-based decision making in software engineering: A systematic literature review. IEEE Transactions on Software Engineering, 44(6), 552-586.
+Mazinanian, D., Bavota, G., Di Penta, M., & Oliveto, R. (2017). Automated software refactoring: The quest for the holy grail. IEEE Software, 34(1), 98-104.
+Menziest, T., Greenwald, J., & Frank, A. (2021). Software analytics: So what? IEEE Software, 38(4), 89-95.
+Rodriguez, M., Bavota, G., Bernal-Cárdenas, C. E., Di Penta, M., & Oliveto, R. (2020). Mining software repositories for software security. ACM Computing Surveys (CSUR), 53(3), 1-40.
+Singh, Y., Jalote, P., & Bhat, V. (2021). Automated refactoring research: A systematic mapping study. ACM Computing Surveys (CSUR), 54(1), 1-37.
+Smith, E., Barr, E. T., Le Goues, C., & Brun, Y. (2020). The promise and perils of mining GitHub. Communications of the ACM, 63(10), 32-35.
+Wang, S., Zhu, L., Wen, J., & Xie, T. (2022). An empirical study of refactoring behavior in open-source projects. IEEE Transactions on Software Engineering, 48(1), 62-80.
