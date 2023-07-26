@@ -1,0 +1,31 @@
+nome,repositorio,url,src,checa
+accumulo,repositorio1,https://github.com/apache/accumulo.git,core/src/main/java,True
+calcite,repositorio2,https://github.com/apache/calcite.git,core/src/main/java,True
+cassandra,repositorio3,https://github.com/apache/cassandra.git,src/java,True
+chukwa,repositorio4,https://github.com/apache/chukwa.git,core/src/main/java,True
+jackrabbit,repositorio5,https://github.com/apache/jackrabbit.git,jackrabbit-core/src/main/java,True
+jackson,repositorio6,https://github.com/FasterXML/jackson.git,nao tem o src the Java JSON library,False
+jspwiki,repositorio7,https://github.com/apache/jspwiki.git,jspwiki-api/src/main/java,True
+retrofit,repositorio8,https://github.com/square/retrofit.git,retrofit/src/main/java,True
+spring-boot,repositorio9,https://github.com/spring-projects/spring-boot.git,spring-boot-project/spring-boot/src/main/java,True
+struts,repositorio10,https://github.com/apache/struts.git,core/src/main/java,True
+elasticsearch,repositorio11,https://github.com/elastic/elasticsearch.git,server/src/main/java,True
+jena,repositorio12,https://github.com/apache/jena.git,jena-core/src/main/java,True
+lucene-solr,repositorio13,https://github.com/apache/lucene-solr.git,nao tem o src lucene-solr,False
+tika,repositorio14,https://github.com/apache/tika.git,tika-core/src/main/java,True
+ant-ivy,repositorio15,https://github.com/apache/ant-ivy.git,src/java,True
+jenkins,repositorio16,https://github.com/jenkinsci/jenkins.git,core/src/main/java,True
+jgit,repositorio17,https://github.com/spearce/jgit.git,org/eclipse/jgit/src/org/eclipse/jgit,False
+selenium,repositorio18,https://github.com/SeleniumHQ/selenium.git,java/src,True
+testng,repositorio19,https://github.com/cbeust/testng.git,testng-core/src/main/java,True
+pdfbox,repositorio20,https://github.com/apache/pdfbox.git,pdfbox/src/main/java,True
+poi,repositorio21,https://github.com/apache/poi.git,poi/src/main/java,True
+xerces2-j,repositorio22,https://github.com/apache/xerces2-j.git,src/org/apache/xerces,True
+druid,repositorio23,https://github.com/apache/druid.git,server/src/main/java,True
+pgjdbc,repositorio24,https://github.com/pgjdbc/pgjdbc.git,pgjdbc/src/main/java,True
+activemq,repositorio25,https://github.com/apache/activemq.git,activemq-http/src/main/java,True
+mina,repositorio26,https://github.com/apache/mina.git,core/src/main/java,True
+libgdx,repositorio27,https://github.com/libgdx/libgdx.git,gdx/src,True
+fastjson,repositorio28,https://github.com/alibaba/fastjson.git,src/main/java,True
+gson,repositorio29,https://github.com/google/gson.git,gson/src/main/java,True
+guava,repositorio30,https://github.com/google/guava.git,guava/src,True
