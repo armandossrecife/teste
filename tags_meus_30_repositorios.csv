@@ -1,0 +1,31 @@
+id;Category;Project;Git Repository;Description;qtd_total_commits;contributors;tag_inicial;tag_final
+1;Data storage and management;accumulo;https://github.com/apache/accumulo.git;Data Storage System;11971;151;rel/18.0;rel/1.9.2
+2;Data storage and management;calcite;https://github.com/apache/calcite.git;Dynamic Data Managment;5336;320;calcite-1.29.0;calcite-1.35.0
+3;Data storage and management;cassandra;https://github.com/apache/cassandra.git;Distributed NoSQL database;28872;423;cassandra-3.11.0;cassandra-3.11.11
+4;Data storage and management;chukwa;https://github.com/apache/chukwa.git;Data collection;854;10;chukwa-0.4.0;chukwa-0.8.0
+5;Data storage and management;jackrabbit;https://github.com/apache/jackrabbit.git;Content Repository;9144;26;jackrabbit-2.20.0;jackrabbit-2.21.18
+6;Data storage and management;jackson;https://github.com/FasterXML/jackson.git;Data biding library;2052;46;01/10/2021;23/04/2023
+7;Web engines and web tools;jspwiki;https://github.com/apache/jspwiki.git;Wiki Engine;9296;16;2.11.0.M7;2.12.0
+8;Web engines and web tools;retrofit;https://github.com/square/retrofit.git;Android HTTP client;2073;169;parent-2.50;2.8.2
+9;Web engines and web tools;spring-boot;https://github.com/spring-projects/spring-boot.git;Spring-based project manager;44061;1013;v3.0.7;v3.1.2
+10;Web engines and web tools;struts;https://github.com/apache/struts.git;Web apps;6656;64;STRUTS_6_0_0_RC1;STRUTS_6_2_0
+11;Search engines;elasticsearch;https://github.com/elastic/elasticsearch.git;Search engine;69718;1839;v6.8.23;v8.9.0
+12;Search engines;jena;https://github.com/apache/jena.git;Sematic web;10858;95;jena-4.9.0;jena-4.3.0
+13;Search engines;lucene;https://github.com/apache/lucene-solr.git;Search engine;34921;234;8.6.3;8.11.2
+14;Search engines;tika;https://github.com/apache/tika.git;Content Analysis Toolkit;7523;123;2.8.0;2.0.0
+15;Development tools;ant-ivy;https://github.com/apache/ant-ivy.git;Dependecy Manager;3043;21;2.4.0;2.5.1
+16;Development tools;jenkins;https://github.com/jenkinsci/jenkins.git;Automation server;34012;754;2.206;2.416
+17;Development tools;jgit;https://github.com/spearce/jgit.git;Java implementation of Git;5081;129;v4.4.0.201606011500-rc2;v4.8.0.201705170830-rc1
+18;Development tools;selenium;https://github.com/SeleniumHQ/selenium.git;Automation Web libraries;30025;692;selenium-3.150.0;selenium-4.10.0
+19;Development tools;testng;https://github.com/cbeust/testng.git;Testing framework;5261;198;7.6.0;7.8.0
+20;Document manipulation;pdfbox;https://github.com/apache/pdfbox.git;PDF library;11355;6;2.0.0;3.0.0-RC1
+21;Document manipulation;poi;https://github.com/apache/poi.git;MS Office API;12625;16;REL_4_0_0_FINAL;REL_5_2_3
+22;Document manipulation;xerces2;https://github.com/apache/xerces2-j.git;XML Library;5510;3;Xerces-J_2_11_0;Xerces-J_2_12_0
+23;JDBC drivers;druid;https://github.com/apache/druid.git;Alibaba JDBC Library;12978;561;druid-24.0.0;druid-26.0.0
+24;JDBC drivers;pgjdbc;https://github.com/pgjdbc/pgjdbc.git;PostgreSQL JDBC driver;3314;267;REL42.2.26;REL42.6.0
+25;Networking and messaging;activemq;https://github.com/apache/activemq.git;Message Server;11446;127;activemq-5.16.0;activemq-5.17.5
+26;Networking and messaging;mina;https://github.com/apache/mina.git;Network Framework;2409;17;2.1.1;2.1.7
+27;Game engine;libgdx;https://github.com/libgdx/libgdx.git;Game engine;15262;550;gdx-parent-1.9.10;1.12.0
+28;Data biding;fastjson;https://github.com/alibaba/fastjson.git;Alibaba JSON data mapper;3983;179;1.2.66;1.2.83
+29;Data biding;gson;https://github.com/google/gson.git;Google JSON data mapper;1850;135;gson-parent-2.8.7;gson-parent-2.10.1
+30;Utility;guava;https://github.com/google/guava.git;Google Core Library;6144;293;v30.1.1;v32.1.1
