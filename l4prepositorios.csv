@@ -1,5 +1,5 @@
 repositorio,projeto,source
 repositorio1,cassandra,src.java
 repositorio2,kafka,core.src.main.java.kafka
-repositorio3,spring-boot,src.main.java.org.springframework.boot
+repositorio3,spring-boot,spring-boot-project.src.main.java.org.springframework.boot
 repositorio4,elasticsearch,server.src.main.java.org.elasticsearch
