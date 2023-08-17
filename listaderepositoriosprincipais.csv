@@ -1,0 +1,5 @@
+Category;Project;Git Repository;Description
+Data storage and management;cassandra;https://github.com/apache/cassandra.git;Distributed NoSQL database
+Message broker;kafka;https://github.com/apache/kafka.git; Message broker
+Web engines and web tools;spring-boot;https://github.com/spring-projects/spring-boot.git;Spring-based project manager
+Search engines;elasticsearch;https://github.com/elastic/elasticsearch.git;Search engine
