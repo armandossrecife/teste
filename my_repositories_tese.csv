@@ -2,3 +2,4 @@ url,nome,source_java,stars,forks,colaborators
 https://github.com/apache/activemq.git,activemq,activemq-http/src/main/java,2200,1400,127
 https://github.com/apache/cassandra.git,cassandra,src/java,8100,3400,424
 https://github.com/google/guava.git,guava,guava/src,48100,10700,293
+https://github.com/apache/kafka.git,kafka,core/src,25700,13000,1042
