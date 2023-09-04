@@ -3,4 +3,4 @@ https://github.com/apache/activemq.git,activemq,activemq-http/src/main/java,2200
 https://github.com/apache/cassandra.git,cassandra,src/java,8100,3400,424
 https://github.com/google/guava.git,guava,guava/src,48100,10700,293
 https://github.com/apache/kafka.git,kafka,core/src,25700,13000,1042
-https://github.com/FasterXML/jackson-databind.git,src/main/java,3300,1300,225
+https://github.com/FasterXML/jackson-databind.git,jackson-databind,src/main/java,3300,1300,225
