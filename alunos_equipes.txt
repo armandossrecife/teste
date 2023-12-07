@@ -1,0 +1,37 @@
+20219028326,ANA CAROLLINE SANTOS SILVA,equipe1
+20219017529,BENJAMIN SANTOS SILVA,equipe1
+20219000719,HIRO NAKATU,equipe1
+20219022654,ITALO BORGES DOS SANTOS,equipe1
+20209018344,NIVALDO NOGUEIRA PARANAGUA SANTOS E SILVA,equipe1
+20209012897,Landerson Miguel,equipe1
+20209050584,Ícaro Gabryel de Araujo Silva,equipe2
+20209051311,Cayo Cesar Lopes Mascarenhas Pires Cardoso,equipe2
+20209060375,Claudiney Ryan da Silva,equipe2
+20209009819,Fábio Anderson Carvalho Silva,equipe2
+20209061200,RODRIGO EDUARDO DE ALENCAR MARQUES,equipe2
+20199014050,Lucas Sales,equipe2
+20219002080,João Filipe Batista e Silva,equipe3
+20179130383,Matheus do Vale Alencar,equipe3
+20209068570,Neemias Calebe Pereira Freire,equipe3
+20189049820,Rhuan Moura Oliveira Meireles de Carvalho,equipe3
+20219006374,Ytallo Gomes Ribeiro Mendes,equipe3
+20209003744,Francisco Cosme,equipe3
+20219001064,João Pedro Soares do Monte,equipe4
+20219006561,Angelus Fayran Lima Rocha,equipe4
+20219015767,Guilherme Torres Melo,equipe4
+20219002885,Mateus De Sousa Moura,equipe4
+20219001930,Marcelo Do Val Brito,equipe4
+20209061167,Oscar William Nunes de Carvalho,equipe5
+20209025803,Guilherme Eduardo Almeida Martinelis,equipe5
+20219019588,Pedro Henrique Sousa de Oliveira,equipe5
+20209072189,Rayanne Ellen Lopes Figueiredo,equipe5
+20189037417,Milena Arysa Brito Portela,equipe6
+20219011525,Ellem Almeida Amorim,equipe6
+20219002295,Pedro Felipe Ferreira de Abreu,equipe6
+20219001260,Ryan Ferreira de Sousa,equipe6
+20219000129,Vinícius Alves de Moura,equipe6
+20219000595,Luis Felipe Cabral Brito,equipe7
+20219007980,Luis Gustavo da Silva Sousa,equipe7
+20219019630,Luiz Henrique Mesquita de Aquino,equipe7
+20219010760,Ramon Matheus da Silva Fernandes,equipe7
+20219012148,Victor Hugo de Souza Campos,equipe7
