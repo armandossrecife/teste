@@ -1,0 +1,35 @@
+Technical Debt in Continuous Software Engineering: An Overview of the State of the Art and Future Trends
+Beyond Technical Debt Unravelling Organisational Debt Concept
+The broken windows theory applies to technical debt
+IDENTIFYING TECHNICAL DEBT AND TOOLS FOR TECHNICAL DEBT MANAGEMENT IN SOFTWARE DEVELOPMENT
+Revisiting Technical Debt Types and Indicators for Software Systems
+A Method to Support Documentation Technical Debt Management
+Systematic Literature Review on Forecasting and Prediction of Technical Debt Evolution
+Full-Scale Software Engineering
+A Multivocal Literature Review on Non-Technical Debt in Software Development: An Insight into Process, Social, People, Organizational, and Culture Debt
+Technical Debt Monitoring Decision Making with Skin in the Game
+Including validation of process control systems' engineering into the technical debt classification
+Variability debt in opportunistic reuse: A multi-project field study
+Presti: Predicting Repayment Effort of Self-Admitted Technical Debt Using Textual Information
+Mining architectural information: A systematic mapping study
+How Do OSS Developers Utilize Architectural Solutions from Q&A Sites: An Empirical Study
+The Pandora's box of social, process, and people debts in software engineering
+Evolution Patterns of Software-Architecture Smells: An Empirical Study of Intra-and Inter-Version Smells
+Managing Software Complexity in Automotive SW Development
+Towards a Software Reengineering Body of Knowledge (SREBOK)
+Shedding Light on the Dark Side–A Systematic Literature Review of the Issues in Agile Software Development Methodology Use
+On the Correlation between Architectural Smells and Static Analysis Warnings
+Just-In-Time TODO-Missed Commits Detection
+Prevalence and severity of design anti-patterns in open source programs—A large-scale study
+Towards Maintainable Resilient Production Systems
+Improving API Design Skills with the API Design Fest
+On Maintainability and Microservice Dependencies: How Do Changes Propagate?
+Microservice API Evolution in Practice: A Study on Strategies and Challenges
+What Makes a Good TODO Comment?
+Understanding the Purpose of Source-Code Scopes Based on API Classifications
+Architecting for sustainability of and in the cloud: A systematic literature review
+An empirical investigation on the competences and roles of practitioners in Microservices-based Architectures
+Automated Model Quality Estimation and Change Impact Analysis on Model Histories
+A Process for Monitoring the Impact of Architecture Principles on Sustainability: An Industrial Case Study
+Original Research Article From tradition to innovation: The telecommunications metamorphosis with AI and advanced technologies
+Connecting the dots: Exploring brain connectivity during responsibility recognition in construction contract negotiations
