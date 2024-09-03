@@ -1,0 +1,28 @@
+regiao,SIGLA_UF,estado,pib
+Norte,AC,Acre,16476000000
+Nordeste,AL,Alagoas,63202000000
+Norte,AP,Amapá,18469000000
+Norte,AM,Amazonas,116019000000
+Nordeste,BA,Bahia,305321000000
+Nordeste,CE,Ceará,166915000000
+Centro-Oeste,DF,Distrito Federal,265847000000
+Sudeste,ES,Espírito Santo,138446000000
+Centro-Oeste,GO,Goiás,224126000000
+Nordeste,MA,Maranhão,106916000000
+Centro-Oeste,MT,Mato Grosso,178650000000
+Centro-Oeste,MS,Mato Grosso do Sul,122628000000
+Sudeste,MG,Minas Gerais,682786000000
+Sul,PR,Paraná,487931000000
+Nordeste,PB,Paraíba,70292000000
+Norte,PA,Pará,215936000000
+Nordeste,PE,Pernambuco,193307000000
+Nordeste,PI,Piauí,56391000000
+Sudeste,RJ,Rio de Janeiro,753824000000
+Nordeste,RN,Rio Grande do Norte,71577000000
+Sul,RS,Rio Grande do Sul,470942000000
+Norte,RO,Rondônia,51599000000
+Norte,RR,Roraima,16024000000
+Sul,SC,Santa Catarina,349275000000
+Nordeste,SE,Sergipe,45410000000
+Sudeste,SP,São Paulo,2377639000000
+Norte,TO,Tocantins,43650000000
