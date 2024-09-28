@@ -29,4 +29,11 @@ Para realizar uma análise completa e aprofundada dos dados sobre população e 
 * **Softwares estatísticos:** Softwares como SPSS e STATA oferecem uma ampla gama de ferramentas para análise estatística, permitindo realizar testes de hipóteses, regressões e outras análises mais complexas.
 * **Softwares de visualização de dados:** Ferramentas como Tableau e Power BI permitem criar visualizações interativas e intuitivas dos dados, facilitando a compreensão de padrões e tendências.
 
+Além destes, é possível fazer **uso de bibliotecas especializadas do ecossistema Python** para análise de dados, como:
+- NumPy: Para operações numéricas e matriciais.
+- Pandas: Para manipulação e análise de dados estruturados.
+- Matplotlib e Seaborn: Para criação de visualizações.
+- Scikit-learn: Para machine learning.
+- Statsmodels: Para modelagem estatística.
+
 **Em resumo,** a análise da população e do PIB dos estados brasileiros é uma ferramenta poderosa para compreender a dinâmica econômica e social do país. Ao cruzar esses dados e utilizar as ferramentas adequadas, é possível identificar oportunidades, desafios e direcionar políticas públicas para promover o desenvolvimento sustentável e a redução das desigualdades regionais.
