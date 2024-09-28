@@ -55,3 +55,5 @@ Além destes, é possível fazer **uso de bibliotecas especializadas do ecossist
 - **Modelagem:** Após a preparação dos dados, é possível construir modelos estatísticos ou de machine learning (regressão, SVM, Clusterização) para fazer previsões ou encontrar insights.
 
 - **Visualização:** A visualização de dados é fundamental para comunicar os resultados da análise de forma clara e concisa.
+
+Segue um exemplo de análise disponível neste [link](https://github.com/armandossrecife/teste/blob/main/analise_dados_estados_brasil.ipynb).
