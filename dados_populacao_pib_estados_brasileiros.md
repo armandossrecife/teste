@@ -1,6 +1,6 @@
 ## Análise da População e PIB dos Estados Brasileiros: Um Panorama
 
-A análise conjunta da população e do Produto Interno Bruto (PIB) dos 27 estados brasileiros é fundamental para compreender a dinâmica econômica e social do país. Essa análise permite identificar padrões, desigualdades e tendências que podem orientar políticas públicas e investimentos.
+A análise conjunta da população e do Produto Interno Bruto (PIB) das 27 unidades federativas do Brasil é fundamental para compreender a dinâmica econômica e social do país. Essa análise permite identificar padrões, desigualdades e tendências que podem orientar políticas públicas e investimentos.
 
 ### Quais informações podem ser extraídas da análise?
 
