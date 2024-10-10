@@ -27,7 +27,7 @@ Criar um algoritmo envolve um processo criativo e lógico. Geralmente, segue-se 
 
 * **[Pseudocódigo](https://github.com/armandossrecife/teste/blob/main/aual1-1_algoritmos.md):** Uma linguagem informal que se assemelha a uma linguagem de programação, mas é mais fácil de entender para humanos.
 * **[Fluxograma](https://github.com/armandossrecife/teste/blob/main/aula1-2_algoritmos.md):** Uma representação visual do algoritmo, utilizando símbolos para representar diferentes tipos de operações.
-* **Linguagem de programação:** Um algoritmo pode ser implementado em uma linguagem de programação específica, como Python, Java ou C++.
+* **Linguagem de programação:** Um algoritmo pode ser implementado em uma linguagem de programação específica, como [Python](https://github.com/armandossrecife/icc-2024-2/blob/main/python.md), [Java](https://pt.wikipedia.org/wiki/Java_(linguagem_de_programa%C3%A7%C3%A3o)), [C](https://pt.wikipedia.org/wiki/C_(linguagem_de_programa%C3%A7%C3%A3o)) ou [C++](https://pt.wikipedia.org/wiki/C%2B%2B).
 
 **Exemplo de um algoritmo em pseudocódigo para calcular a média de dois números:**
 
