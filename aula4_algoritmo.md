@@ -1,6 +1,6 @@
 ## Análise do Código Python que resolve a busca de um nome em uma lista
 
-### Parte 1: Criação e Impressão da Lista
+### Parte 1: Criação e impressão da lista
 
 ```python
 lista_nomes = ['Maria', 'José', 'Antônio', 'Carla']
@@ -9,7 +9,7 @@ print(lista_nomes)
 * **Criação da lista:** Uma lista de nomes é criada e armazenada na variável `lista_nomes`.
 * **Impressão da lista:** A função `print()` exibe os elementos da lista no console.
 
-### Parte 2: Definição do Nome a Ser Procurado
+### Parte 2: Definição do nome a ser procurado
 
 ```python
 nome_procurado = 'Antônio'
@@ -18,7 +18,7 @@ print(nome_procurado)
 * **Armazenamento do nome:** O nome que será buscado na lista é armazenado na variável `nome_procurado`.
 * **Impressão do nome:** O valor da variável `nome_procurado` é exibido no console.
 
-### Parte 3: Busca Simples do Nome
+### Parte 3: Busca simples do nome
 
 ```python
 for nome in lista_nomes:
@@ -29,7 +29,7 @@ for nome in lista_nomes:
 * **Comparação:** Em cada iteração, o elemento atual da lista (`nome`) é comparado com o `nome_procurado`.
 * **Impressão:** Se houver uma correspondência, a mensagem "Nome encontrado" é exibida.
 
-### Parte 4: Busca e Impressão da Posição
+### Parte 4: Busca e impressão da posição
 
 ```python
 posicao_inicial = 0
