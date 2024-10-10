@@ -62,3 +62,7 @@ O código busca um nome específico dentro de uma lista de nomes. Primeiro, ele 
 * **Otimizações:** Para listas grandes, você poderia explorar algoritmos de busca mais eficientes, como a busca binária.
 
 Este código demonstra uma forma simples de implementar uma busca em uma lista em Python. Com algumas modificações, ele pode ser adaptado para diversas outras aplicações.
+
+## Explicando o código em forma de algoritmo
+
+https://github.com/armandossrecife/teste/blob/main/aula5_algoritmo.md
