@@ -1,4 +1,4 @@
-## Análise do Código Python que resolve a busca de um nome em uma lista
+## Análise do Código Python que resolve a busca sequencial de um nome em uma lista
 
 ### Parte 1: Criação e impressão da lista
 
