@@ -25,7 +25,7 @@ Criar um algoritmo envolve um processo criativo e lógico. Geralmente, segue-se 
 
 **Exemplos de Representações de Algoritmos:**
 
-* **Pseudocódigo:** Uma linguagem informal que se assemelha a uma linguagem de programação, mas é mais fácil de entender para humanos.
+* **[Pseudocódigo](https://github.com/armandossrecife/teste/blob/main/aual1-1_algoritmos.md):** Uma linguagem informal que se assemelha a uma linguagem de programação, mas é mais fácil de entender para humanos.
 * **Fluxograma:** Uma representação visual do algoritmo, utilizando símbolos para representar diferentes tipos de operações.
 * **Linguagem de programação:** Um algoritmo pode ser implementado em uma linguagem de programação específica, como Python, Java ou C++.
 
