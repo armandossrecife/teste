@@ -6,7 +6,7 @@
 
 [Parte 2](https://github.com/armandossrecife/teste/blob/main/aula2_algoritmo.md)
 
-
+- Como resolver um problema computacional utilizando algoritmos?
 
 [Parte 3](https://github.com/armandossrecife/teste/blob/main/aula3_algoritmo.md)
 
