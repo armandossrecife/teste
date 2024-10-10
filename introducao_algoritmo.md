@@ -14,4 +14,4 @@
 
 [Parte 4](https://github.com/armandossrecife/teste/blob/main/aula4_algoritmo.md)
 
-- Código Python que resolve a busca de um nome em uma lista.
+- Código Python que resolve a busca sequencial de um nome em uma lista.
