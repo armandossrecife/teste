@@ -4,7 +4,7 @@
 
 Imagine que você tem uma lista de nomes, como uma agenda telefônica. Você quer encontrar um nome específico nessa lista. Esse é um problema comum em diversas aplicações, desde a busca de um contato em um celular até a pesquisa de um produto em um e-commerce.
 
-**Algoritmo de Busca Sequencial:**
+**Algoritmo de Busca Sequencial (solução mais simples):**
 
 Um dos algoritmos mais simples e intuitivos para resolver esse problema é a **busca sequencial**. Nessa abordagem, você percorre a lista de nomes um por um, comparando cada nome com o nome que você está procurando. Se encontrar uma correspondência, você encontrou o nome desejado. Caso contrário, você continua a busca até o final da lista ou até encontrar o nome.
 
