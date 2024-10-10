@@ -10,4 +10,6 @@
 
 [Parte 3](https://github.com/armandossrecife/teste/blob/main/aula3_algoritmo.md)
 
+- O problema da busca de um nome em uma coleção de nomes
+
 [Parte 4](https://github.com/armandossrecife/teste/blob/main/aula4_algoritmo.md)
