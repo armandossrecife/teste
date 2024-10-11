@@ -24,6 +24,7 @@ print(nome_procurado)
 for nome in lista_nomes:
     if nome == nome_procurado:
         print('Nome encontrado')
+        break # encerra o for
 ```
 * **Iteração:** Um loop `for` é utilizado para percorrer cada elemento da lista `lista_nomes`.
 * **Comparação:** Em cada iteração, o elemento atual da lista (`nome`) é comparado com o `nome_procurado`.
@@ -38,6 +39,7 @@ for nome in lista_nomes:
     if nome == nome_procurado:
         print('Nome encontrado')
         print(f'Posição encontrada: {posicao_atual}')
+        break # encerra o for
     posicao_atual = posicao_atual + 1
 ```
 * **Inicialização de variáveis:** As variáveis `posicao_inicial` e `posicao_atual` são inicializadas com 0, representando o índice do primeiro elemento da lista.
