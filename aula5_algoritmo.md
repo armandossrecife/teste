@@ -12,6 +12,7 @@ ALGORITMO busca_sequencial(lista_nomes, nome_procurado)
         SE nome == nome_procurado ENTÃO
             IMPRIMIR "Nome encontrado"
             IMPRIMIR "Posição encontrada:", posição_atual
+            ENCERRAR O PARA
         FIM SE
         posicao_atual <- posição_atual + 1
     FIM PARA
