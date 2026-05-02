@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Armando Soares Sousa | Infográfico Profissional</title>
+  <meta name="description" content="Infográfico responsivo do perfil profissional de Armando Soares Sousa." />
+  <style>
+    :root {
+      --navy: #12355b;
+      --blue: #1e88e5;
+      --cyan: #00a7c7;
+      --green: #2e7d32;
+      --orange: #f2994a;
+      --purple: #6c63ff;
+      --dark: #1f2937;
+      --muted: #5b677a;
+      --light: #f7f9fc;
+      --card: #ffffff;
+      --line: #d7e3f3;
+      --shadow: 0 18px 40px rgba(18, 53, 91, 0.12);
+      --radius: 24px;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--dark);
+      background:
+        radial-gradient(circle at top right, rgba(30, 136, 229, 0.14), transparent 28rem),
+        radial-gradient(circle at 5% 15%, rgba(0, 167, 199, 0.12), transparent 22rem),
+        var(--light);
+      line-height: 1.55;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .page {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+      padding: 28px 0;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      padding: clamp(28px, 5vw, 64px);
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(18, 53, 91, 0.98), rgba(18, 53, 91, 0.88)),
+        linear-gradient(45deg, var(--blue), var(--cyan));
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      z-index: -1;
+    }
+
+    .hero::before {
+      width: 360px;
+      height: 360px;
+      right: -120px;
+      top: -120px;
+      background: rgba(30, 136, 229, 0.35);
+    }
+
+    .hero::after {
+      width: 260px;
+      height: 260px;
+      left: -100px;
+      bottom: -120px;
+      background: rgba(0, 167, 199, 0.25);
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(170px, 220px) minmax(0, 1fr);
+      align-items: center;
+      gap: clamp(22px, 4vw, 46px);
+    }
+
+    .profile-photo {
+      position: relative;
+      width: clamp(150px, 20vw, 210px);
+      aspect-ratio: 1 / 1;
+      border-radius: 30px;
+      padding: 7px;
+      background: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 24px 44px rgba(0, 0, 0, 0.20);
+      justify-self: center;
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 24px;
+      border: 3px solid rgba(255, 255, 255, 0.65);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 8px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #d9ecff;
+      font-weight: 700;
+      font-size: 0.92rem;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      margin: 18px 0 10px;
+      max-width: 920px;
+      font-size: clamp(2.2rem, 5.6vw, 4.6rem);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+    }
+
+    .subtitle {
+      max-width: 860px;
+      margin: 0;
+      color: #d9ecff;
+      font-size: clamp(1.02rem, 2.2vw, 1.38rem);
+      font-weight: 500;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #eef8ff;
+      font-weight: 650;
+      font-size: 0.95rem;
+    }
+
+    .section-title {
+      margin: 34px 0 14px;
+      color: var(--navy);
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      letter-spacing: -0.035em;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+      gap: 18px;
+      margin: 26px 0 10px;
+    }
+
+    .stat {
+      padding: 24px;
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      border: 1px solid #e1e8f2;
+      min-height: 142px;
+    }
+
+    .stat strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-size: clamp(1.75rem, 3vw, 2.55rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 22px;
+      margin-top: 22px;
+    }
+
+    .card {
+      position: relative;
+      grid-column: span 6;
+      padding: clamp(22px, 3vw, 30px);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      border: 1px solid #e1e8f2;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 7px;
+      background: var(--accent, var(--blue));
+    }
+
+    .card-wide {
+      grid-column: 1 / -1;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .icon {
+      display: grid;
+      place-items: center;
+      flex: 0 0 54px;
+      height: 54px;
+      border-radius: 18px;
+      color: #fff;
+      background: var(--accent, var(--blue));
+      font-size: 1.35rem;
+      font-weight: 800;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(1.3rem, 2.6vw, 1.75rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    h3 {
+      margin: 0;
+      color: var(--dark);
+      font-size: 1.05rem;
+      line-height: 1.25;
+    }
+
+    .timeline-list,
+    .bullet-list {
+      display: grid;
+      gap: 18px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .timeline-list li {
+      position: relative;
+      padding-left: 34px;
+    }
+
+    .timeline-list li::before {
+      content: "";
+      position: absolute;
+      left: 3px;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent, var(--blue));
+      box-shadow: 0 0 0 6px rgba(30, 136, 229, 0.12);
+    }
+
+    .timeline-list li::after {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 30px;
+      width: 2px;
+      height: calc(100% + 4px);
+      background: var(--line);
+    }
+
+    .timeline-list li:last-child::after {
+      display: none;
+    }
+
+    .desc {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 9px 13px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--tag-color, var(--blue));
+      font-weight: 750;
+      font-size: 0.92rem;
+    }
+
+    .callout {
+      padding: 18px;
+      border-radius: 18px;
+      background: #f0f7ff;
+      color: var(--muted);
+      border: 1px solid #d7eafe;
+      font-weight: 550;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 28px;
+      color: var(--dark);
+    }
+
+    .bullet-list li::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: 10px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent, var(--blue));
+    }
+
+    .compact-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 24px;
+    }
+
+    .horizontal-timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .milestone {
+      min-height: 132px;
+      padding: 18px 14px;
+      border-radius: 20px;
+      background: #f6faff;
+      border: 1px solid #dceafa;
+      text-align: center;
+    }
+
+    .milestone::before {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 18px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 7px rgba(30, 136, 229, 0.13);
+    }
+
+    .milestone strong {
+      display: block;
+      color: var(--navy);
+      font-size: 0.98rem;
+      margin-bottom: 6px;
+    }
+
+    .milestone span {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    footer {
+      margin: 26px 0 0;
+      padding: 22px;
+      border-radius: 22px;
+      background: var(--navy);
+      color: #d9ecff;
+      text-align: center;
+      font-weight: 650;
+    }
+
+    .accent-blue { --accent: var(--blue); }
+    .accent-green { --accent: var(--green); }
+    .accent-purple { --accent: var(--purple); }
+    .accent-orange { --accent: var(--orange); }
+    .accent-cyan { --accent: var(--cyan); }
+
+    @media (max-width: 980px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .eyebrow,
+      .hero-meta {
+        justify-content: center;
+      }
+
+      .subtitle,
+      h1 {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .card {
+        grid-column: 1 / -1;
+      }
+
+      .compact-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: min(100% - 24px, var(--max-width));
+        padding: 16px 0;
+      }
+
+      .hero {
+        border-radius: 26px;
+        padding: 28px 20px;
+      }
+
+      .profile-photo {
+        width: min(58vw, 180px);
+        border-radius: 26px;
+      }
+
+      .profile-photo img {
+        border-radius: 20px;
+      }
+
+      .hero-meta {
+        gap: 9px;
+      }
+
+      .meta-pill {
+        width: 100%;
+        justify-content: center;
+        border-radius: 18px;
+      }
+
+      .stat {
+        min-height: auto;
+      }
+
+      .card-header {
+        align-items: flex-start;
+      }
+
+      .icon {
+        flex-basis: 48px;
+        height: 48px;
+        border-radius: 16px;
+      }
+
+      .tags {
+        gap: 9px;
+      }
+
+      .tag {
+        font-size: 0.86rem;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+      }
+
+      .hero,
+      .stat,
+      .card,
+      footer {
+        box-shadow: none;
+      }
+
+      .hero {
+        border-radius: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-labelledby="titulo">
+      <div class="hero-layout">
+        <figure class="profile-photo" aria-label="Foto de Armando Soares Sousa">
+          <img src="https://raw.githubusercontent.com/my-prototypes/tflk/main/app/static/upload/armando.jpeg" alt="Foto de Armando Soares Sousa" loading="eager" />
+        </figure>
+
+        <div class="hero-content">
+          <span class="eyebrow">Perfil profissional</span>
+          <h1 id="titulo">Armando Soares Sousa</h1>
+          <p class="subtitle">
+            Professor, pesquisador e consultor em Tecnologia da Informação, com atuação em Engenharia de Software,
+            Arquitetura de Software, Dívida Técnica, Gestão de Projetos e Aplicações de IA Generativa.
+          </p>
+          <div class="hero-meta" aria-label="Informações de contato e perfil">
+            <span class="meta-pill">🎓 Doutorado em Ciência da Computação</span>
+            <span class="meta-pill">🏛 Universidade Federal do Piauí</span>
+            <span class="meta-pill">📍 Teresina, PI</span>
+            <span class="meta-pill">✉️ armando@ufpi.edu.br</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Indicadores do perfil">
+      <article class="stat">
+        <strong>25+</strong>
+        <span>anos em TI, ensino e projetos de sistemas</span>
+      </article>
+      <article class="stat">
+        <strong>10+</strong>
+        <span>projetos de sistemas de médio e grande porte</span>
+      </article>
+      <article class="stat">
+        <strong>2011–Atual</strong>
+        <span>professor efetivo na UFPI</span>
+      </article>
+      <article class="stat">
+        <strong>5</strong>
+        <span>formações acadêmicas principais</span>
+      </article>
+      <article class="stat">
+        <strong>3</strong>
+        <span>idiomas: português, inglês e espanhol</span>
+      </article>
+    </section>
+
+    <h2 class="section-title">Resumo organizado do perfil</h2>
+
+    <section class="grid" aria-label="Seções do perfil profissional">
+      <article class="card accent-blue">
+        <div class="card-header">
+          <span class="icon">A</span>
+          <h2>Formação Acadêmica</h2>
+        </div>
+        <ol class="timeline-list">
+          <li>
+            <h3>Doutorado em Ciência da Computação</h3>
+            <p class="desc">Universidade Federal do Ceará — 2018–2024. Tese sobre identificação de Dívida Técnica Arquitetural.</p>
+          </li>
+          <li>
+            <h3>MBA em Gerenciamento de Projetos</h3>
+            <p class="desc">FGV-EAESP — 2014–2016. Tema: implantação de ERP em instituições de ensino superior.</p>
+          </li>
+          <li>
+            <h3>Mestrado em Ciência da Computação</h3>
+            <p class="desc">CIn/UFPE — 2006–2008. Pesquisa sobre servidor de dados multimídia para sistemas virtuais de ensino.</p>
+          </li>
+          <li>
+            <h3>Especialização em Tecnologias da Informação</h3>
+            <p class="desc">CIn/UFPE — 2002–2004. Pesquisa sobre banco de dados e sistemas operacionais homogêneos.</p>
+          </li>
+          <li>
+            <h3>Graduação em Ciência da Computação</h3>
+            <p class="desc">UFPI — 1997–2001. Aplicação cliente/servidor para a Agência Disque-Sedex.</p>
+          </li>
+        </ol>
+      </article>
+
+      <article class="card accent-green">
+        <div class="card-header">
+          <span class="icon">P</span>
+          <h2>Experiência Profissional</h2>
+        </div>
+        <ol class="timeline-list">
+          <li>
+            <h3>Professor Efetivo</h3>
+            <p class="desc">Departamento de Computação da UFPI — desde 2011.</p>
+          </li>
+          <li>
+            <h3>Gestão Universitária</h3>
+            <p class="desc">Coordenador de Sistemas e Diretor de TI no NTI/UFPI e Coordenador de Planejamento na PROPLAN/UFPI.</p>
+          </li>
+          <li>
+            <h3>Setor Privado e Consultorias</h3>
+            <p class="desc">Experiência como gerente de projetos, consultor de TI e engenheiro de sistemas.</p>
+          </li>
+          <li>
+            <h3>Atuação Internacional e Tecnológica</h3>
+            <p class="desc">Passagens por BID, CESAR e Hackstrike, com projetos corporativos e de engenharia de sistemas.</p>
+          </li>
+        </ol>
+      </article>
+
+      <article class="card accent-purple">
+        <div class="card-header">
+          <span class="icon">T</span>
+          <h2>Áreas de Atuação e Pesquisa</h2>
+        </div>
+        <div class="tags" aria-label="Temas principais">
+          <span class="tag" style="--tag-color: var(--blue)">Engenharia de Software</span>
+          <span class="tag" style="--tag-color: var(--purple)">Arquitetura de Software</span>
+          <span class="tag" style="--tag-color: var(--orange)">Dívida Técnica</span>
+          <span class="tag" style="--tag-color: var(--cyan)">Mineração de Repositórios</span>
+          <span class="tag" style="--tag-color: var(--green)">ERP</span>
+          <span class="tag" style="--tag-color: var(--blue)">Sistemas Web</span>
+          <span class="tag" style="--tag-color: #8e44ad">Engenharia de IA</span>
+        </div>
+        <div class="callout">
+          Foco em pesquisa aplicada, arquitetura, qualidade de software, modernização de sistemas e uso de IA no apoio à engenharia de software.
+        </div>
+      </article>
+
+      <article class="card accent-orange">
+        <div class="card-header">
+          <span class="icon">R</span>
+          <h2>Projetos Destacados</h2>
+        </div>
+        <ul class="bullet-list compact-list">
+          <li><strong>Soberania:</strong> Plataforma de IA Generativa do Governo do Estado do Piauí.</li>
+          <li><strong>ATDCodeAnalyzer:</strong> método semiautomático para identificar áreas de impacto arquitetural.</li>
+          <li><strong>SysRepoAnalysis:</strong> identificação de áreas críticas em repositórios de código.</li>
+          <li><strong>SERCA-Web / SERCA:</strong> automação de sistemas para o Tribunal de Contas do Piauí.</li>
+          <li><strong>Plataforma SIG:</strong> implantação da plataforma ERP acadêmica da UFPI.</li>
+          <li><strong>UFPIMaps:</strong> georreferenciamento de unidades da UFPI.</li>
+          <li><strong>InfoTracking:</strong> rastreamento via RFID para containers no Porto de Suape.</li>
+          <li><strong>BemaUPOs:</strong> driver da impressora MP-4000, em parceria Bematech/CESAR.</li>
+          <li><strong>BTC:</strong> Brasil Test Central, em parceria Motorola/CESAR.</li>
+        </ul>
+      </article>
+
+      <article class="card accent-cyan">
+        <div class="card-header">
+          <span class="icon">C</span>
+          <h2>Produção Científica</h2>
+        </div>
+        <ul class="bullet-list">
+          <li>Capítulo Springer 2025 sobre abordagem automatizada para identificar arquivos afetados por Dívida Técnica Arquitetural.</li>
+          <li>Artigo no SBES 2025: <em>Automated Identification of Software Architectural Issues</em>.</li>
+          <li>Artigo no SBES 2023 sobre <em>Architectural Technical Debt</em> por meio de estudo de mapeamento sistemático.</li>
+          <li>Artigo no SBES 2022 sobre a ferramenta SysRepoAnalysis, no Tools Track.</li>
+          <li>Artigo no IEEE SANER 2021 sobre dívida técnica em projetos distribuídos de larga escala.</li>
+        </ul>
+      </article>
+
+      <article class="card accent-purple">
+        <div class="card-header">
+          <span class="icon">E</span>
+          <h2>Ensino, Orientações, Bancas e Eventos</h2>
+        </div>
+        <ul class="bullet-list">
+          <li>Disciplinas: Engenharia de Software I/II, Estágio Supervisionado, Tópicos em Engenharia de Software e Tópicos em Computação Aplicada.</li>
+          <li>Orientações em automação de testes, Arquitetura de Software e Gestão de Projetos.</li>
+          <li>Participação em bancas avaliadoras na UFPI e em outras instituições.</li>
+          <li>Apresentação de trabalhos em conferências como SBES, CBSOFT, IEEE SANER, ECSA e PROFES.</li>
+        </ul>
+      </article>
+
+      <article class="card card-wide accent-blue">
+        <div class="card-header">
+          <span class="icon">L</span>
+          <h2>Linha do Tempo Profissional</h2>
+        </div>
+        <div class="horizontal-timeline" aria-label="Linha do tempo">
+          <div class="milestone">
+            <strong>1997–2001</strong>
+            <span>Graduação em Ciência da Computação na UFPI</span>
+          </div>
+          <div class="milestone">
+            <strong>2002–2004</strong>
+            <span>Especialização em Tecnologias da Informação no CIn/UFPE</span>
+          </div>
+          <div class="milestone">
+            <strong>2004–2008</strong>
+            <span>Teste de Software, Engenharia de Sistemas e atuação no CESAR</span>
+          </div>
+          <div class="milestone">
+            <strong>2006–2008</strong>
+            <span>Mestrado em Ciência da Computação no CIn/UFPE</span>
+          </div>
+          <div class="milestone">
+            <strong>2008</strong>
+            <span>Estágio em Engenharia de Sistemas na Hackstrike, em Israel</span>
+          </div>
+          <div class="milestone">
+            <strong>2009</strong>
+            <span>Consultor de TI no BID, em Washington DC</span>
+          </div>
+          <div class="milestone">
+            <strong>2010</strong>
+            <span>Coordenador de Fábrica de Software no Grupo Claudino</span>
+          </div>
+          <div class="milestone">
+            <strong>2011</strong>
+            <span>Ingresso como professor efetivo de Ciência da Computação na UFPI</span>
+          </div>
+          <div class="milestone">
+            <strong>2013–2017</strong>
+            <span>Gestão de TI e planejamento institucional na UFPI</span>
+          </div>
+          <div class="milestone">
+            <strong>2014–2016</strong>
+            <span>MBA em Gestão de Projetos na FGV-SP</span>
+          </div>
+          <div class="milestone">
+            <strong>2018–2024</strong>
+            <span>Doutorado em Ciência da Computação na UFC</span>
+          </div>
+          <div class="milestone">
+            <strong>2025–Atual</strong>
+            <span>Coordenação de desenvolvimento na Plataforma Soberania</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      Perfil profissional sintetizado em formato de infográfico responsivo.
+    </footer>
+  </main>
+</body>
+</html>
