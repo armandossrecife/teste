@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guia Completo de Storage na AWS: Amazon EBS vs Amazon S3</title>
+  <meta name="description" content="Infográfico responsivo sobre Amazon EBS e Amazon S3: armazenamento em bloco, objetos, tipos de volumes, classes de armazenamento, casos de uso e arquitetura combinada." />
+  <style>
+    :root {
+      --navy: #08213d;
+      --blue-900: #0b2f5f;
+      --blue-700: #1262b3;
+      --blue-500: #2185d5;
+      --cyan-700: #0d93a8;
+      --cyan-500: #18b7cc;
+      --orange: #f6a23a;
+      --orange-soft: #fff3df;
+      --green: #39a852;
+      --purple: #7756d7;
+      --ink: #172033;
+      --muted: #5c6b7a;
+      --line: #c8d8e8;
+      --surface: #ffffff;
+      --surface-2: #f3f8fd;
+      --shadow: 0 18px 45px rgba(8, 33, 61, .12);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(33,133,213,.12), transparent 34rem),
+        radial-gradient(circle at 85% 10%, rgba(24,183,204,.14), transparent 30rem),
+        linear-gradient(180deg, #f7fbff 0%, #ffffff 45%, #f2f7fb 100%);
+      line-height: 1.45;
+    }
+
+    a { color: inherit; }
+    .page {
+      width: min(var(--max), calc(100% - 28px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, #071a32 0%, #0b2f5f 58%, #0e6881 100%);
+      color: white;
+      border-bottom-left-radius: 34px;
+      border-bottom-right-radius: 34px;
+      padding: clamp(28px, 5vw, 58px) 0 clamp(26px, 5vw, 46px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 420px;
+      height: 420px;
+      top: -230px;
+      right: -120px;
+      background: rgba(24,183,204,.20);
+    }
+
+    .hero::after {
+      width: 360px;
+      height: 360px;
+      bottom: -220px;
+      left: -130px;
+      background: rgba(246,162,58,.16);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 140px 1fr 140px;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.15rem, 5.5vw, 5rem);
+      line-height: .98;
+      letter-spacing: -0.055em;
+      text-align: center;
+    }
+
+    .hero h1 span {
+      display: block;
+      font-size: clamp(1.8rem, 4.4vw, 4.15rem);
+      margin-top: 8px;
+      color: #bdefff;
+    }
+
+    .hero .subtitle {
+      max-width: 850px;
+      margin: 18px auto 0;
+      text-align: center;
+      font-size: clamp(1rem, 1.7vw, 1.28rem);
+      color: rgba(255,255,255,.86);
+    }
+
+    .hero-icon {
+      width: 100%;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.28);
+      background: rgba(255,255,255,.10);
+      backdrop-filter: blur(10px);
+      border-radius: 28px;
+      font-size: 4.8rem;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+    }
+
+    .summary {
+      margin-top: -26px;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .summary-card {
+      background: rgba(255,255,255,.96);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 18px;
+      min-height: 180px;
+    }
+
+    .summary-card .badge {
+      width: 92px;
+      height: 92px;
+      border-radius: 28px;
+      display: grid;
+      place-items: center;
+      font-size: 3.4rem;
+      color: white;
+    }
+
+    .summary-card.ebs .badge { background: linear-gradient(135deg, var(--blue-900), var(--blue-500)); }
+    .summary-card.s3 .badge { background: linear-gradient(135deg, #047b96, var(--cyan-500)); }
+
+    h2, h3, p { margin-top: 0; }
+    .summary-card h2 {
+      font-size: clamp(1.25rem, 2.1vw, 1.65rem);
+      margin-bottom: 8px;
+      line-height: 1.08;
+    }
+
+    .summary-card h2 small {
+      display: block;
+      color: var(--muted);
+      font-size: .82em;
+      margin-top: 3px;
+    }
+
+    ul.check {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 6px;
+    }
+
+    ul.check li {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    ul.check li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: .05em;
+      width: 19px;
+      height: 19px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: #e7f4ff;
+      color: var(--blue-700);
+      font-weight: 900;
+      font-size: .78rem;
+    }
+
+    .section {
+      margin: 24px 0;
+      background: rgba(255,255,255,.96);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 30px rgba(8, 33, 61, .08);
+      overflow: hidden;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 22px;
+      background: linear-gradient(90deg, #eaf5ff, #f2fbfd);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-title .num {
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--blue-900);
+      color: white;
+      font-weight: 900;
+      font-size: 1.15rem;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(1.25rem, 2vw, 1.75rem);
+      letter-spacing: -.02em;
+      color: var(--blue-900);
+      text-transform: uppercase;
+    }
+
+    .section-body {
+      padding: clamp(18px, 2.6vw, 30px);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      align-items: start;
+    }
+
+    .split-line {
+      border-left: 1px solid var(--line);
+      padding-left: 28px;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+    }
+
+    .mini-icons {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .mini {
+      text-align: center;
+      border-radius: 16px;
+      padding: 14px 10px;
+      background: var(--surface-2);
+      border: 1px solid #d9e8f5;
+      min-height: 112px;
+      display: grid;
+      place-items: center;
+      gap: 6px;
+      font-weight: 750;
+      color: var(--blue-900);
+    }
+
+    .mini .icon { font-size: 2.15rem; line-height: 1; }
+    .mini span:last-child { font-size: .88rem; }
+
+    .compare-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 860px;
+      background: white;
+    }
+
+    th, td {
+      border-bottom: 1px solid #d7e5f2;
+      border-right: 1px solid #d7e5f2;
+      padding: 13px 14px;
+      vertical-align: top;
+      font-size: .96rem;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+    th:last-child, td:last-child { border-right: 0; }
+
+    thead th {
+      color: white;
+      font-size: .95rem;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+
+    thead th:nth-child(1) { background: var(--navy); width: 23%; }
+    thead th:nth-child(2) { background: var(--blue-700); width: 38.5%; }
+    thead th:nth-child(3) { background: var(--cyan-700); width: 38.5%; }
+
+    tbody td:first-child {
+      background: #f1f7fc;
+      color: var(--blue-900);
+      font-weight: 800;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    .detail-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 8px 22px rgba(8, 33, 61, .06);
+    }
+
+    .detail-card header {
+      color: white;
+      padding: 15px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .detail-card.ebs header { background: linear-gradient(90deg, var(--blue-900), var(--blue-700)); }
+    .detail-card.s3 header { background: linear-gradient(90deg, #056b82, var(--cyan-700)); }
+
+    .detail-card header .num {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.24);
+      font-weight: 900;
+    }
+
+    .detail-card header h2 {
+      margin: 0;
+      font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+      letter-spacing: -.01em;
+      text-transform: uppercase;
+    }
+
+    .detail-content {
+      padding: 20px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .subgrid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .info-box {
+      background: #f6fbff;
+      border: 1px solid #d8e8f6;
+      border-radius: var(--radius-sm);
+      padding: 16px;
+    }
+
+    .info-box h3 {
+      margin-bottom: 8px;
+      color: var(--blue-900);
+      font-size: 1.02rem;
+    }
+
+    .diagram {
+      min-height: 145px;
+      display: grid;
+      align-items: center;
+      background:
+        linear-gradient(135deg, rgba(33,133,213,.08), rgba(24,183,204,.08));
+      border: 1px dashed #9dbbd7;
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .flow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .node {
+      flex: 1;
+      min-width: 78px;
+      text-align: center;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 11px 8px;
+      font-weight: 800;
+      color: var(--blue-900);
+      box-shadow: 0 6px 14px rgba(8, 33, 61, .06);
+    }
+
+    .node .icon { display: block; font-size: 2rem; margin-bottom: 4px; }
+    .arrow { color: var(--orange); font-size: 1.6rem; font-weight: 900; }
+
+    .volumes {
+      overflow-x: auto;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+    }
+
+    .volumes table {
+      min-width: 690px;
+      font-size: .9rem;
+    }
+
+    .volumes th {
+      background: var(--blue-900) !important;
+      color: white;
+    }
+
+    .tag {
+      display: inline-grid;
+      place-items: center;
+      width: 36px;
+      height: 28px;
+      border-radius: 10px;
+      color: white;
+      font-weight: 900;
+      margin-right: 7px;
+    }
+
+    .tag.gp { background: var(--blue-700); }
+    .tag.pi { background: #2c56be; }
+    .tag.st { background: var(--green); }
+    .tag.sc { background: var(--purple); }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .step {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      position: relative;
+      min-height: 168px;
+    }
+
+    .step strong {
+      display: inline-grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: var(--orange);
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .step h4 {
+      margin: 0 0 8px;
+      color: var(--blue-900);
+      font-size: 1rem;
+    }
+
+    .step .icon {
+      position: absolute;
+      right: 14px;
+      top: 13px;
+      font-size: 1.9rem;
+    }
+
+    .cards-row {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .use-card {
+      text-align: center;
+      background: #f7fbff;
+      border: 1px solid #d8e8f6;
+      border-radius: 14px;
+      padding: 13px 8px;
+      font-weight: 760;
+      color: var(--blue-900);
+    }
+
+    .use-card .icon { display:block; font-size: 1.85rem; margin-bottom: 5px; }
+
+    .durability {
+      background: linear-gradient(135deg, #ecfbff, #fff7ea);
+      border: 1px solid #b9e8f1;
+      border-radius: 18px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .durability .big {
+      display: block;
+      font-size: clamp(1.35rem, 2.8vw, 2rem);
+      font-weight: 1000;
+      color: var(--cyan-700);
+      line-height: 1;
+      margin: 8px 0;
+    }
+
+    .mini-two {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: white;
+    }
+
+    .tier {
+      padding: 14px 10px;
+      min-height: 188px;
+      border-right: 1px solid var(--line);
+      position: relative;
+    }
+
+    .tier:last-child { border-right: 0; }
+    .tier::before {
+      content: "";
+      display: block;
+      height: 8px;
+      border-radius: 999px;
+      margin-bottom: 13px;
+    }
+
+    .tier.standard::before { background: var(--blue-700); }
+    .tier.intelligent::before { background: var(--orange); }
+    .tier.ia::before { background: var(--green); }
+    .tier.glacier::before { background: #368bd4; }
+    .tier.deep::before { background: var(--purple); }
+
+    .tier h4 {
+      margin: 0 0 8px;
+      font-size: .98rem;
+      color: var(--blue-900);
+    }
+
+    .tier p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .decision {
+      display: grid;
+      grid-template-columns: 1fr 170px 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .decision-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+      background: #fff;
+    }
+
+    .decision-card h3 {
+      color: var(--blue-900);
+      margin-bottom: 12px;
+    }
+
+    .decision-center {
+      width: 170px;
+      height: 170px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, var(--blue-900), var(--cyan-700));
+      color: white;
+      font-weight: 900;
+      box-shadow: var(--shadow);
+      border: 8px solid #e6f5fb;
+    }
+
+    .architecture {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1.1fr 1.35fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .arch-item {
+      position: relative;
+      background: #f7fbff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      min-height: 154px;
+      display: grid;
+      place-items: center;
+    }
+
+    .arch-item:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -18px;
+      top: 50%;
+      translate: 0 -50%;
+      z-index: 2;
+      color: var(--orange);
+      font-size: 2rem;
+      font-weight: 1000;
+    }
+
+    .arch-item .icon {
+      font-size: 2.5rem;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .arch-item h3 {
+      margin-bottom: 6px;
+      color: var(--blue-900);
+      font-size: 1.05rem;
+    }
+
+    .arch-item p { margin: 0; color: var(--muted); font-size: .9rem; }
+
+    .final {
+      background: linear-gradient(135deg, var(--navy), #073454);
+      color: white;
+      border-radius: 28px;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .final .section-title {
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.16);
+    }
+
+    .final .section-title h2 { color: white; }
+    .final .section-title .num { background: var(--orange); }
+
+    .final-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+    }
+
+    .final-item {
+      padding: 26px;
+      border-right: 1px solid rgba(255,255,255,.16);
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .final-item:last-child { border-right: 0; }
+    .final-item .icon { font-size: 2.7rem; line-height: 1; }
+    .final-item h3 { margin-bottom: 6px; font-size: 1.25rem; }
+    .final-item p { color: rgba(255,255,255,.78); margin: 0; }
+
+    .note {
+      margin: 20px 0 40px;
+      color: var(--muted);
+      text-align: center;
+      font-size: .92rem;
+    }
+
+    .print-bar {
+      position: sticky;
+      bottom: 16px;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .print-bar button {
+      pointer-events: auto;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 18px;
+      background: var(--navy);
+      color: white;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+
+    @media (max-width: 1000px) {
+      .hero-grid { grid-template-columns: 90px 1fr 90px; }
+      .hero-icon { font-size: 3.2rem; border-radius: 22px; }
+      .details-grid { grid-template-columns: 1fr; }
+      .subgrid { grid-template-columns: 1fr; }
+      .architecture { grid-template-columns: 1fr 1fr; }
+      .arch-item:not(:last-child)::after { display: none; }
+      .final-grid { grid-template-columns: 1fr; }
+      .final-item { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.16); }
+      .final-item:last-child { border-bottom: 0; }
+    }
+
+    @media (max-width: 760px) {
+      .page { width: min(100% - 18px, var(--max)); }
+      .hero { border-bottom-left-radius: 24px; border-bottom-right-radius: 24px; }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-icon {
+        width: 94px;
+        justify-self: center;
+      }
+      .hero-icon:last-child { order: 3; }
+      .summary { grid-template-columns: 1fr; }
+      .summary-card {
+        grid-template-columns: 70px 1fr;
+        padding: 18px;
+      }
+      .summary-card .badge {
+        width: 70px;
+        height: 70px;
+        font-size: 2.45rem;
+        border-radius: 20px;
+      }
+      .two-col,
+      .decision,
+      .mini-two {
+        grid-template-columns: 1fr;
+      }
+      .split-line {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+        padding-left: 0;
+        padding-top: 22px;
+      }
+      .mini-icons {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .steps,
+      .cards-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+      .tier {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .tier:last-child { border-bottom: 0; }
+      .decision-center {
+        width: 150px;
+        height: 150px;
+        justify-self: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section-title {
+        padding: 13px 14px;
+      }
+      .section-title .num {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+      }
+      .section-body { padding: 16px; }
+      .mini-icons, .steps, .cards-row {
+        grid-template-columns: 1fr;
+      }
+      .flow {
+        flex-direction: column;
+      }
+      .arrow {
+        rotate: 90deg;
+      }
+      .architecture {
+        grid-template-columns: 1fr;
+      }
+      .final-item {
+        grid-template-columns: 1fr;
+      }
+      table { min-width: 780px; }
+    }
+
+    @media print {
+      body { background: white; }
+      .hero, .section, .summary-card, .detail-card { box-shadow: none; }
+      .print-bar { display: none; }
+      .page { width: 100%; max-width: none; }
+      .section { break-inside: avoid; }
+      a { text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="page hero-grid">
+      <div class="hero-icon" aria-hidden="true">🧊</div>
+      <div>
+        <h1>Guia Completo de Storage na AWS:<span>Amazon EBS vs Amazon S3</span></h1>
+        <p class="subtitle">Quando usar armazenamento em bloco e quando usar armazenamento de objetos na nuvem</p>
+      </div>
+      <div class="hero-icon" aria-hidden="true">🪣</div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="summary" aria-label="Resumo comparativo">
+      <article class="summary-card ebs">
+        <div class="badge" aria-hidden="true">🧱</div>
+        <div>
+          <h2>Amazon EBS <small>Elastic Block Store</small></h2>
+          <ul class="check">
+            <li>Armazenamento em nível de bloco.</li>
+            <li>Volumes persistentes anexados ao EC2.</li>
+            <li>Baixa latência e alta performance com IOPS.</li>
+            <li>Ideal para sistemas operacionais, bancos de dados e aplicações transacionais.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="summary-card s3">
+        <div class="badge" aria-hidden="true">🪣</div>
+        <div>
+          <h2>Amazon S3 <small>Simple Storage Service</small></h2>
+          <ul class="check">
+            <li>Armazenamento de objetos em buckets.</li>
+            <li>Escalável, altamente durável e disponível.</li>
+            <li>Acesso via API, console, CLI ou URLs.</li>
+            <li>Ideal para backups, data lakes, mídia, arquivamento e conteúdo estático.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="visao-geral">
+      <div class="section-title"><span class="num">1</span><h2>Visão geral</h2></div>
+      <div class="section-body">
+        <p class="lead">EBS e S3 são serviços complementares de armazenamento na AWS, mas foram projetados para paradigmas diferentes: bloco e objeto.</p>
+        <div class="two-col">
+          <article>
+            <h3>EBS — Armazenamento em Bloco</h3>
+            <p>Fornece volumes que funcionam como discos rígidos virtuais para instâncias EC2. É indicado para cargas que precisam de baixa latência, alto IOPS e leitura/escrita frequente em nível de bloco.</p>
+            <div class="mini-icons">
+              <div class="mini"><span class="icon">🖥️</span><span>Servidores EC2</span></div>
+              <div class="mini"><span class="icon">🗄️</span><span>Bancos de Dados</span></div>
+              <div class="mini"><span class="icon">⚙️</span><span>Aplicações Transacionais</span></div>
+              <div class="mini"><span class="icon">💽</span><span>SO / Disco de Boot</span></div>
+            </div>
+          </article>
+
+          <article class="split-line">
+            <h3>S3 — Armazenamento de Objetos</h3>
+            <p>Armazena dados como objetos dentro de buckets. É indicado para grandes volumes de arquivos, acesso distribuído, retenção de longo prazo, data lakes e distribuição de conteúdo.</p>
+            <div class="mini-icons">
+              <div class="mini"><span class="icon">☁️</span><span>Backups</span></div>
+              <div class="mini"><span class="icon">🌊</span><span>Data Lake & Analytics</span></div>
+              <div class="mini"><span class="icon">🖼️</span><span>Mídia & Conteúdo</span></div>
+              <div class="mini"><span class="icon">📦</span><span>Arquivamento Corporativo</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="comparacao">
+      <div class="section-title"><span class="num">2</span><h2>Comparação direta: EBS vs S3</h2></div>
+      <div class="section-body">
+        <div class="compare-wrap" role="region" aria-label="Tabela comparativa entre Amazon EBS e Amazon S3" tabindex="0">
+          <table>
+            <thead>
+              <tr>
+                <th>Aspecto</th>
+                <th>Amazon EBS</th>
+                <th>Amazon S3</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Paradigma</td><td>Armazenamento em <strong>bloco</strong>.</td><td>Armazenamento de <strong>objetos</strong>.</td></tr>
+              <tr><td>Acoplamento / Acesso</td><td>Anexado a uma instância EC2, geralmente de forma acoplada.</td><td>Acesso desacoplado via API, Console, CLI, SDKs ou URLs.</td></tr>
+              <tr><td>Escopo</td><td>Zonal: o volume pertence a uma Availability Zone.</td><td>Regional: buckets e objetos são gerenciados em escopo regional.</td></tr>
+              <tr><td>Estrutura dos dados</td><td>Dados tratados em blocos do arquivo.</td><td>Objeto completo: arquivo + metadados.</td></tr>
+              <tr><td>Atualização</td><td>Altera apenas os blocos modificados, eficiente para escrita frequente.</td><td>Normalmente regrava o objeto inteiro, adequado para dados imutáveis ou pouco alterados.</td></tr>
+              <tr><td>Capacidade</td><td>Volumes de até 16 TiB.</td><td>Objetos de até 5 TB e buckets com capacidade praticamente ilimitada.</td></tr>
+              <tr><td>Desempenho</td><td>Baixa latência, alto IOPS e performance previsível.</td><td>Alto throughput, escalabilidade massiva e acesso distribuído.</td></tr>
+              <tr><td>Melhor para</td><td>Disco de boot, banco de dados, ERP, sistemas transacionais e workloads persistentes.</td><td>Backups, data lakes, mídia, logs, arquivos estáticos e arquivamento.</td></tr>
+              <tr><td>Compartilhamento</td><td>Uso mais restrito e geralmente indireto via servidor ou aplicação.</td><td>Acesso amplo, global e controlado por políticas, permissões e URLs.</td></tr>
+              <tr><td>Custo</td><td>Relacionado ao volume provisionado, tipo de disco, IOPS e duração.</td><td>Otimizado por classes de armazenamento, frequência de acesso e recuperação.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="details-grid" aria-label="Detalhamento dos serviços">
+      <article class="detail-card ebs" id="ebs">
+        <header><span class="num">3</span><h2>Amazon EBS — em detalhes</h2></header>
+        <div class="detail-content">
+          <div class="subgrid">
+            <div class="info-box">
+              <h3>Como funciona</h3>
+              <p>Volumes persistentes são criados em uma Availability Zone e anexados a uma instância EC2 como se fossem discos.</p>
+              <div class="diagram">
+                <div class="flow" aria-label="Fluxo EC2 para EBS">
+                  <div class="node"><span class="icon">🖥️</span>EC2</div>
+                  <div class="arrow">→</div>
+                  <div class="node"><span class="icon">💽</span>Volume EBS</div>
+                  <div class="arrow">→</div>
+                  <div class="node"><span class="icon">🏢</span>AZ</div>
+                </div>
+              </div>
+            </div>
+            <div class="info-box">
+              <h3>Principais benefícios</h3>
+              <ul class="check">
+                <li>Baixa latência e alto IOPS.</li>
+                <li>Persistência dos dados.</li>
+                <li>Snapshots para proteção.</li>
+                <li>Elasticidade de tamanho e performance.</li>
+                <li>Integração nativa com EC2.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h3>Tipos de volume EBS</h3>
+            <div class="volumes" role="region" aria-label="Tabela de tipos de volumes EBS" tabindex="0">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Tipo</th>
+                    <th>Tamanho máximo</th>
+                    <th>IOPS máximo</th>
+                    <th>Throughput máximo</th>
+                    <th>Ideal para</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="tag gp">GP</span>SSD Uso Geral</td>
+                    <td>Até 16 TiB</td>
+                    <td>Até 16.000</td>
+                    <td>Até 250 MiB/s</td>
+                    <td>Boot, desktops virtuais, aplicações e cargas gerais.</td>
+                  </tr>
+                  <tr>
+                    <td><span class="tag pi">PI</span>SSD IOPS Provisionadas</td>
+                    <td>Até 16 TiB</td>
+                    <td>Até 64.000</td>
+                    <td>Até 1.000 MiB/s</td>
+                    <td>Bancos de dados, aplicações críticas e baixa latência.</td>
+                  </tr>
+                  <tr>
+                    <td><span class="tag st">ST</span>HDD Otimizado para Throughput</td>
+                    <td>Até 16 TiB</td>
+                    <td>—</td>
+                    <td>Até 500 MiB/s</td>
+                    <td>Big data, data warehouses, ETL, streaming e acesso sequencial.</td>
+                  </tr>
+                  <tr>
+                    <td><span class="tag sc">SC</span>HDD Frio</td>
+                    <td>Até 16 TiB</td>
+                    <td>—</td>
+                    <td>Até 250 MiB/s</td>
+                    <td>Arquivamento barato, logs e dados acessados esporadicamente.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div>
+            <h3>Ciclo de vida do EBS</h3>
+            <div class="steps">
+              <div class="step"><span class="icon">🔌</span><strong>1</strong><h4>Criar e anexar</h4><p>Crie o volume EBS e anexe a uma instância EC2 na mesma AZ.</p></div>
+              <div class="step"><span class="icon">📈</span><strong>2</strong><h4>Operar / escalar</h4><p>Amplie tamanho, ajuste tipo e adapte a performance à demanda.</p></div>
+              <div class="step"><span class="icon">📸</span><strong>3</strong><h4>Proteger</h4><p>Crie snapshots para capturar pontos no tempo e armazenar com segurança.</p></div>
+              <div class="step"><span class="icon">↩️</span><strong>4</strong><h4>Restaurar</h4><p>Restaure um volume a partir de snapshots quando necessário.</p></div>
+            </div>
+          </div>
+
+          <div>
+            <h3>Casos de uso do EBS</h3>
+            <div class="cards-row">
+              <div class="use-card"><span class="icon">💽</span>Disco de Boot</div>
+              <div class="use-card"><span class="icon">🗃️</span>Banco Relacional</div>
+              <div class="use-card"><span class="icon">🏢</span>Aplicações Enterprise</div>
+              <div class="use-card"><span class="icon">⚙️</span>ERP / Sistemas Transacionais</div>
+              <div class="use-card"><span class="icon">🖥️</span>VMs Persistentes</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="detail-card s3" id="s3">
+        <header><span class="num">4</span><h2>Amazon S3 — em detalhes</h2></header>
+        <div class="detail-content">
+          <div class="subgrid">
+            <div class="info-box">
+              <h3>Como funciona</h3>
+              <p>Dados são armazenados como objetos dentro de buckets. Um objeto combina o arquivo, seus metadados e uma chave de identificação.</p>
+              <div class="diagram">
+                <div class="flow" aria-label="Fluxo bucket para objetos">
+                  <div class="node"><span class="icon">🪣</span>Bucket</div>
+                  <div class="arrow">→</div>
+                  <div class="node"><span class="icon">📄</span>Objeto</div>
+                  <div class="arrow">+</div>
+                  <div class="node"><span class="icon">🏷️</span>Metadados</div>
+                </div>
+              </div>
+            </div>
+            <div class="durability">
+              <strong>Durabilidade de 11 noves</strong>
+              <span class="big">99,999999999%</span>
+              <p>Projetado para oferecer altíssima durabilidade dos dados.</p>
+              <p aria-hidden="true" style="font-size:2rem;margin:.4rem 0 0;">🛡️</p>
+            </div>
+          </div>
+
+          <div class="mini-two">
+            <div class="info-box">
+              <h3>O que é um Bucket?</h3>
+              <p>Contêiner lógico para armazenar objetos. Possui nome único, escopo regional e pode armazenar volumes massivos de dados.</p>
+            </div>
+            <div class="info-box">
+              <h3>O que é um Objeto?</h3>
+              <p>Arquivo armazenado no S3 junto com metadados e chave. Cada objeto pode ter até 5 TB.</p>
+            </div>
+          </div>
+
+          <div>
+            <h3>Classes de armazenamento do S3</h3>
+            <div class="timeline">
+              <div class="tier standard"><h4>S3 Standard</h4><p>Acesso frequente, baixa latência e alta disponibilidade para dados ativos.</p></div>
+              <div class="tier intelligent"><h4>S3 Intelligent-Tiering</h4><p>Ajuste automático entre camadas conforme o padrão real de acesso.</p></div>
+              <div class="tier ia"><h4>S3 Standard-IA / One Zone-IA</h4><p>Acesso infrequente, menor custo de armazenamento e cobrança por recuperação.</p></div>
+              <div class="tier glacier"><h4>S3 Glacier</h4><p>Arquivamento seguro, com recuperação em minutos ou horas.</p></div>
+              <div class="tier deep"><h4>Glacier Deep Archive</h4><p>Menor custo para retenção de longo prazo, com recuperação em até 12 horas.</p></div>
+            </div>
+          </div>
+
+          <div>
+            <h3>Casos de uso do S3</h3>
+            <div class="cards-row">
+              <div class="use-card"><span class="icon">☁️</span>Backups e Restore</div>
+              <div class="use-card"><span class="icon">🌊</span>Data Lake & Analytics</div>
+              <div class="use-card"><span class="icon">🌐</span>Sites Estáticos</div>
+              <div class="use-card"><span class="icon">🎞️</span>Mídia e Streaming</div>
+              <div class="use-card"><span class="icon">🧾</span>Logs e Arquivamento</div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <h3>Resiliência e escala</h3>
+            <ul class="check">
+              <li>Replicação e durabilidade em múltiplas AZs dentro da região.</li>
+              <li>Projetado para escalar a grandes volumes de objetos e petabytes de dados.</li>
+              <li>Integração com serviços AWS para segurança, analytics, backup e distribuição.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="decisao">
+      <div class="section-title"><span class="num">5</span><h2>Quando escolher cada um?</h2></div>
+      <div class="section-body">
+        <div class="decision">
+          <article class="decision-card">
+            <h3>Escolha EBS se você precisa de:</h3>
+            <ul class="check">
+              <li>Disco de boot para instâncias EC2.</li>
+              <li>Banco de dados com baixa latência.</li>
+              <li>Alto IOPS e performance previsível.</li>
+              <li>Escrita/leitura frequente em nível de bloco.</li>
+              <li>Volume persistente acoplado ao servidor.</li>
+            </ul>
+          </article>
+
+          <div class="decision-center">Qual é a sua necessidade principal?</div>
+
+          <article class="decision-card">
+            <h3>Escolha S3 se você precisa de:</h3>
+            <ul class="check">
+              <li>Armazenamento altamente escalável de arquivos.</li>
+              <li>Backup, arquivamento ou retenção de longo prazo.</li>
+              <li>Data lake, analytics e big data.</li>
+              <li>Distribuição de conteúdo estático ou mídia.</li>
+              <li>Compartilhamento e acesso amplo por API.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="arquitetura">
+      <div class="section-title"><span class="num">6</span><h2>Arquitetura combinada: EBS + S3</h2></div>
+      <div class="section-body">
+        <div class="architecture">
+          <div class="arch-item"><div><span class="icon">🖥️</span><h3>Instância EC2</h3><p>Aplicação ou servidor executando o workload.</p></div></div>
+          <div class="arch-item"><div><span class="icon">💽</span><h3>EBS</h3><p>Disco principal, baixa latência e dados ativos.</p></div></div>
+          <div class="arch-item"><div><span class="icon">📸</span><h3>Snapshots</h3><p>Pontos no tempo para proteção e restauração.</p></div></div>
+          <div class="arch-item"><div><span class="icon">🪣</span><h3>Amazon S3</h3><p>Backup seguro, retenção, arquivamento e distribuição.</p></div></div>
+          <div class="arch-item"><div><span class="icon">🔁</span><h3>Integrações</h3><p>DR, migração de dados, data lake, distribuição de arquivos, logs e auditoria.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final" id="resumo">
+      <div class="section-title"><span class="num">7</span><h2>Resumo final</h2></div>
+      <div class="final-grid">
+        <article class="final-item">
+          <div class="icon" aria-hidden="true">⚡</div>
+          <div><h3>Performance com EBS</h3><p>Baixa latência, alto IOPS e armazenamento em bloco para workloads acoplados ao EC2.</p></div>
+        </article>
+        <article class="final-item">
+          <div class="icon" aria-hidden="true">☁️</div>
+          <div><h3>Escala e durabilidade com S3</h3><p>Escalabilidade massiva, acesso flexível e durabilidade de 11 noves para objetos em qualquer volume.</p></div>
+        </article>
+        <article class="final-item">
+          <div class="icon" aria-hidden="true">🧩</div>
+          <div><h3>Juntos, são melhores</h3><p>EBS e S3 se complementam: EBS para dados ativos e críticos; S3 para retenção, proteção e escala.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <p class="note">Infográfico responsivo baseado no material visual sobre arquitetura de armazenamento AWS e na apresentação/anexo fornecidos.</p>
+  </main>
+
+  <div class="print-bar">
+    <button type="button" onclick="window.print()">Imprimir / salvar como PDF</button>
+  </div>
+</body>
+</html>
